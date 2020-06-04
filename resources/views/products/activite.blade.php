@@ -109,7 +109,7 @@
                 <div class="grid-item men">
                       <div class="grid-item__content-wrapper">
                         <div class="ps-shoe mb-30">
-                          <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img src="{{ asset('images/shoe/10.jpg')}}" alt=""><a class="ps-shoe__overlay" href="product-detail.html"></a>
+                          <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img src="{{ asset('images/shoe/10.jpg')}}" alt=""><a class="ps-shoe__overlay" href="{{ route('products.show', $product->slug) }}"></a>
                           </div>
                           <div class="ps-shoe__content">
                             <div class="ps-shoe__variants">

@@ -53,7 +53,8 @@ class ProductController extends Controller
     //Show Using location from map 
     public function ville()
     {
-        return view('products.ville');
+        $products = Product::where('ville', "Monastir")->take(12)->get();
+        return view('products.ville')->with('products', $products);;
     }
 
     
