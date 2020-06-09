@@ -170,7 +170,7 @@ color: white;
                
               </div>
 
-              <FORM>
+              <form action="#" method="POST">
 
                   <div class="box">
                       <select>
@@ -203,7 +203,7 @@ color: white;
                
     
                   <input type="submit" value="Chercher des Offres" class="degla">
-                  </FORM>
+                  </form>
 
 
               <div class="ps-section__content pb-50">
