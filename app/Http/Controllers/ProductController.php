@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 
+
 class ProductController extends Controller
 {
     public function index()
     {
+
         $products = Product::inRandomOrder()->take(12)->get();
         return view('products.index')->with('products', $products);
     }

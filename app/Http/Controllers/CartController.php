@@ -14,7 +14,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        return view('cart.index');
     }
 
     /**
@@ -40,7 +40,7 @@ class CartController extends Controller
         Cart::add($request->id, $request->title, 1, $request->price)
         ->associate('App\Product');
         
-        return redirect()->route('products.show',$request->slug)->with('succes', 'Votre offre a été miser');
+        return redirect()->route('products.show',$request->slug)->with('success', 'Votre offre a été miser');
 
     }
 

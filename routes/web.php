@@ -34,5 +34,11 @@ Route::get('/tout/{slug}', 'ProductController@show')->name('products.show');
 
 /* Enchers Route */ 
 
-Route::post('/MesEnchers/ajouter', 'CartController@store')->name('cart.store');
+Route::get('/mesenchers', 'CartController@index')->name('cart.index');
 
+
+Route::post('/mesenchers/ajouter', 'CartController@store')->name('cart.store');
+
+Route::get('/videenchers', function () {
+    Cart::destroy();
+});
