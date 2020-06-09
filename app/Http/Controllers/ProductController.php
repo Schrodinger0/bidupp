@@ -53,7 +53,7 @@ class ProductController extends Controller
     //Show Using location from map 
     public function ville()
     {
-        $products = Product::where('ville', "Monastir")->take(12)->get();
+        $products = Product::inRandomOrder()->take(12)->get();
         return view('products.ville')->with('products', $products);;
     }
 

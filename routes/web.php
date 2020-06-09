@@ -26,3 +26,13 @@ Route::get('/sport', 'ProductController@sport')->name('products.sport');
 Route::get('/shopping', 'ProductController@shopping')->name('products.shopping');
 Route::get('/ville', 'ProductController@ville')->name('products.ville');
 Route::get('/tout/{slug}', 'ProductController@show')->name('products.show');
+
+ /*ville search route
+
+ Route::get('/ville/{ville}', 'VilleController@show')->name('ville.show');
+*/ 
+
+/* Enchers Route */ 
+
+Route::post('/MesEnchers/ajouter', 'CartController@store')->name('cart.store');
+
