@@ -36,9 +36,17 @@ Route::get('/tout/{slug}', 'ProductController@show')->name('products.show');
 
 Route::get('/mesenchers', 'CartController@index')->name('cart.index');
 
-
+/*crud enchers*/
 Route::post('/mesenchers/ajouter', 'CartController@store')->name('cart.store');
+Route::delete('/mesenchers/{rowId}', 'CartController@destroy')->name('cart.destroy');
+
+
 
 Route::get('/videenchers', function () {
     Cart::destroy();
 });
+
+
+/*Invoice */
+Route::get('/mesenchers/facture', 'CartController@invoice')->name('cart.invoice');
+

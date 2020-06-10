@@ -54,16 +54,16 @@
 
 
     <div class="topnav">
-          <a  href=".././">Acceuil <img src="{{ asset('images/home.png')}}" alt="" style="height:21px;width:21px;"></a>
-          <a  href=".././tout">Tout Voir <img src="{{ asset('images/all.png')}}" alt="" style="height:21px;width:21px;"></a>
-          <a  href=".././activite">Activités <img src="{{ asset('images/activity.png')}}" alt="" style="height:21px;width:21px;"></a>
-          <a  href=".././beaute">Beauté <img src="{{ asset('images/beaute.png')}}" alt="" style="height:21px;width:21px;"></a>
-          <a  href=".././formation">Formation <img src="{{ asset('images/formation.png')}}" alt="" style="height:21px;width:21px;"></a>
-         <a  href=".././gastronomie">Gastronomie <img src="{{ asset('images/food.png')}}" alt="" style="height:21px;width:21px;"></a>
-         <a href=".././hotel">Hotels <img src="{{ asset('images/hotel.png')}}" alt="" style="height:21px;width:21px;"></a>
-         <a  href=".././sport">Sport <img src="{{ asset('images/sport.png')}}" alt="" style="height:21px;width:21px;"></a>
-          <a href=".././shopping">Shopping <img src="{{ asset('images/shopping.png')}}" alt="" style="height:21px;width:21px;"></a>
-          <a href=".././ville">Ma ville <img src="{{ asset('images/map.png')}}" alt="" style="height:21px;width:21px;"></a>
+          <a  href="{{ route('welcome') }}">Acceuil <img src="{{ asset('images/home.png')}}" alt="" style="height:21px;width:21px;"></a>
+          <a  href="{{ route('products.index') }}">Tout Voir <img src="{{ asset('images/all.png')}}" alt="" style="height:21px;width:21px;"></a>
+          <a  href="{{ route('products.activite') }}">Activités <img src="{{ asset('images/activity.png')}}" alt="" style="height:21px;width:21px;"></a>
+          <a  href="{{ route('products.beaute') }}">Beauté <img src="{{ asset('images/beaute.png')}}" alt="" style="height:21px;width:21px;"></a>
+          <a  href="{{ route('products.formation') }}">Formation <img src="{{ asset('images/formation.png')}}" alt="" style="height:21px;width:21px;"></a>
+         <a  href="{{ route('products.gastronomie') }}">Gastronomie <img src="{{ asset('images/food.png')}}" alt="" style="height:21px;width:21px;"></a>
+         <a href="{{ route('products.hotel') }}">Hotels <img src="{{ asset('images/hotel.png')}}" alt="" style="height:21px;width:21px;"></a>
+         <a  href="{{ route('products.sport') }}">Sport <img src="{{ asset('images/sport.png')}}" alt="" style="height:21px;width:21px;"></a>
+          <a href="{{ route('products.shopping') }}">Shopping <img src="{{ asset('images/shopping.png')}}" alt="" style="height:21px;width:21px;"></a>
+          <a href="{{ route('products.ville') }}">Ma ville <img src="{{ asset('images/map.png')}}" alt="" style="height:21px;width:21px;"></a>
     </div>
   </header>
   </div>
@@ -72,7 +72,19 @@
   <main class="ps-main">
     <div class="ps-content pt-80 pb-80">
       <div class="ps-container">
+
+      
+
+ @if (Cart::count() > 0)
+
         <div class="ps-cart-listing">
+
+          @if (session('success'))
+          <div class="alert alert-danger">
+              {{ session('success') }}
+          </div>
+      @endif
+
           <table class="table ps-cart__table">
             <thead>
               <tr>
@@ -94,7 +106,11 @@
                   
                     <td>Bidder Price .Dt</td>
                     <td>
-                      <div class="ps-remove"></div>
+                      <form action="{{ route('cart.destroy', $product->rowId) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="ps-remove"></a>
+                    </form>
                     </td>
                   </tr>
 
@@ -111,10 +127,29 @@
               </div>
             </div>
             <div class="ps-cart__total">
-              <h3>Total Price: <span> 2599.00 $</span></h3><a class="ps-btn" href="checkout.html">Process to checkout<i class="ps-icon-next"></i></a>
+              <h3>HT:  <span> {{ Cart::subtotal() }} .Dt</span></h3><hr>
+            <h3>TAX: 19%  <span>{{Cart::tax()}}  .Dt</span></h3><hr>
+              
+              <h3>prix total:  <span> {{ Cart::total() }} .Dt</span></h3><a class="ps-btn" href="checkout.html">Process to checkout<i class="ps-icon-next"></i></a>
+
             </div>
           </div>
         </div>
+
+
+        @else
+
+
+      
+
+        <div class="alert alert-dismissible alert-success">
+          <img src="{{asset('images/trophy.png')}}" style="width: 100px; height: 100px" >
+          <strong>malheureusemment! :( </strong> Vous avez pas des enchers <a href="{{ route('products.index')}}" class="alert-link">chercher des offres</a>.
+        </div>
+
+        @endif
+
+
       </div>
     </div>
   
