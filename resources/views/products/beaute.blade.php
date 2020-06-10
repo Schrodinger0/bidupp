@@ -21,7 +21,7 @@
               <input class="form-control" type="text" placeholder="Search Product…">
               <button><i class="ps-icon-search"></i></button>
             </form>
-            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><i class="ps-icon-shopping-cart"></i></a>
+            <div class="ps-cart"><a class="ps-cart__toggle" href="{{ route('cart.index') }}"><span><i>{{Cart::count()}}</i></span><i class="fa fa-trophy" aria-hidden="true"></i></a>
             </div>
   
         </div>
