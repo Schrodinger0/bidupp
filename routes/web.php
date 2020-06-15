@@ -51,3 +51,8 @@ Route::get('/videenchers', function () {
 Route::get('/mesenchers/facture', 'CheckoutController@invoice')->name('cart.invoice');
 
 Route::post('/mesenchers/confirm', 'CheckoutController@store')->name('Checkout.store');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
