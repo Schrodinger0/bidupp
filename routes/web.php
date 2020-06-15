@@ -48,5 +48,6 @@ Route::get('/videenchers', function () {
 
 
 /*Invoice */
-Route::get('/mesenchers/facture', 'CartController@invoice')->name('cart.invoice');
+Route::get('/mesenchers/facture', 'CheckoutController@invoice')->name('cart.invoice');
 
+Route::post('/mesenchers/confirm', 'CheckoutController@store')->name('Checkout.store');

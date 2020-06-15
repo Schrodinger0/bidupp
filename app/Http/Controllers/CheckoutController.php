@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Product;
-use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Http\Request;
+use App\Order;
 
-class CartController extends Controller
+use Illuminate\Http\Request;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Session;
+
+class CheckoutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('cart.index');
+        //
     }
 
     /**
@@ -35,12 +37,18 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->json()->all();
 
-        /*change it to the condition of higher price + timer end */ 
-        Cart::add($request->id, $request->title, 1, $request->price)
-        ->associate('App\Product');
+        $order = new Order();
+
+
+        $order->amount= 55;
+        $order->user_id = 15;
+
+     
         
-        return redirect()->route('products.show',$request->slug)->with('success', 'Votre offre a été miser');
+        
+    //    Cart::destroy();
 
     }
 
@@ -75,7 +83,7 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-      
+        //
     }
 
     /**
@@ -84,13 +92,17 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($rowId)
+    public function destroy($id)
     {
-        Cart::remove($rowId);
-
-        return back()->with('success', 'Le produit a été supprimé.');
+        //
     }
 
+    public function invoice()
+    {
+        if (Cart::count() <= 0 ){
+             return redirect()->route('cart.index');
+        }
+        return view('cart.invoice');
+    }
 
-  
 }

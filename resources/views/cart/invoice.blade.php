@@ -276,6 +276,29 @@
                         <div class="notice">Nous utilisons actuellement l'application mobile "Paymee" pour recevoir les paiements que vous pouvez télécharger <a href="https://play.google.com/store/apps/details?id=com.am.paymee">ici</a> ou vous pouvez scanner le Qr Code :</div>
 
                     <img src="{{asset('images/paymee.png')}}" alt="" style="margin-left: 15%;">
+
+
+
+                    <form action="{{ route('Checkout.store') }}" method="POST">
+                        @csrf
+
+                        <input type="hidden" name="amount" value="{{ Cart::total() }}">
+                        <input type="hidden" name="content" value="{{ Cart::content() }}">
+
+
+                      <button type="submit" class="btn btn-Success" style="margin-left: 85%;
+                      background-color: #4CAF50; /* Green */
+                     border: none;
+                     color: white;
+                     padding: 15px 32px;
+                     text-align: center;
+                     text-decoration: none;
+                     display: inline-block;
+                     font-size: 16px;
+                     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">Confirme Commande</button>
+                    </form>
+
+              
                    
                     </div>
                 </main>
