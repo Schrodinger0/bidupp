@@ -15,6 +15,17 @@ class CreateVilleProductTable extends Migration
     {
         Schema::create('ville_product', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('ville_id');
+            $table->foreign('ville_id')
+                  ->references('id')
+                  ->on('villes')
+                  ->onDelete('cascade');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')
+                ->references('id')
+                ->on('products')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

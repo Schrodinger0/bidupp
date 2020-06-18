@@ -28,7 +28,10 @@ class ProductsTableSeeder extends Seeder
             ])->categories()->attach([
                 rand(1, 4),
                 rand(1, 4)
-            ]);;
+            ]);
+            
+         
         }
+        
     }
 }

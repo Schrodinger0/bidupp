@@ -134,30 +134,10 @@ color: white;
 
                   <div class="box">
                       <select  name="ville[]">
-                            <OPTION value="Ariana">Ariana</option>
-                            <OPTION value="Béja">Béja</option>
-                            <OPTION value="Ben Arous">Ben Arous</option>
-                            <OPTION value="Bizerte">Bizerte</option>
-                            <OPTION value="Gabès">Gabès</option>
-                            <OPTION value="Gafsa">Gafsa</option>
-                            <OPTION value="Jendouba">Jendouba</option>
-                            <OPTION value="Kairouan">Kairouan</option>
-                            <OPTION value="Kasserine">Kasserine</option>
-                            <OPTION value="Kébili">Kébili</option>
-                            <OPTION value="Le Kef">Le Kef</option>
-                            <OPTION value="Mahdia">Mahdia</option>
-                            <OPTION value="La Manouba">La Manouba</option>
-                            <OPTION value="Médenine">Médenine</option>
-                            <OPTION value="Monastir">Monastir</option>
-                            <OPTION value="Nabeul">Nabeul</option>
-                            <OPTION value="Sfax">Sfax</option>
-                            <OPTION value="Sidi Bouzid">Sidi Bouzid</option>
-                            <OPTION value="Siliana">Siliana</option>
-                            <OPTION value="Sousse">Sousse</option>
-                            <OPTION value="Tataouine">Tataouine</option>
-                            <OPTION value="Tozeur">Tozeur</option>
-                            <OPTION value="Tunis">Tunis</option>
-                            <OPTION value="Zaghouan">Zaghouan</option>
+                        @foreach ($products->villes as $ville)
+                        <OPTION value="{{ $ville->name }}">  {{ $ville->name }}<OPTION>
+                    @endforeach
+                      
                       </select>
                     </div>
                
