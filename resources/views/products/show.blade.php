@@ -72,7 +72,7 @@
                   <div class="ps-product__thumbnail">
                     <div class="ps-product__preview">
                       <div class="ps-product__variants">
-                        <div class="item"><img src="{{ asset('images/shoe-detail/1.jpg')}}" alt=""></div>
+                        <div class="item"><img src="{{ asset('storage/'.$product->image)}}" alt=""></div>
                         <div class="item"><img src="{{ asset('images/shoe-detail/2.jpg')}}" alt=""></div>
                         <div class="item"><img src="{{ asset('images/shoe-detail/3.jpg')}}" alt=""></div>
                         <div class="item"><img src="{{ asset('images/shoe-detail/3.jpg')}}" alt=""></div>
