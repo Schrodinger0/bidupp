@@ -25,7 +25,10 @@ class ProductsTableSeeder extends Seeder
                 'price' => $faker->numberBetween(15, 300),
                 'duration' => $faker->numberBetween(15, 300),
                 'image' => '//imgur.com/a/WhaAC9O'
-            ]);
+            ])->categories()->attach([
+                rand(1, 4),
+                rand(1, 4)
+            ]);;
         }
     }
 }
