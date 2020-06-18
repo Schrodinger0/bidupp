@@ -38,8 +38,20 @@ Route::get('/search', 'ProductController@search')->name('products.search');
 Route::get('/mesenchers', 'CartController@index')->name('cart.index');
 
 /*crud enchers*/
-Route::post('/mesenchers/ajouter', 'CartController@store')->name('cart.store');
-Route::delete('/mesenchers/{rowId}', 'CartController@destroy')->name('cart.destroy');
+
+
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::post('/mesenchers/ajouter', 'CartController@store')->name('cart.store');
+    Route::delete('/mesenchers/{rowId}', 'CartController@destroy')->name('cart.destroy');
+
+    /*Invoice */
+    Route::get('/mesenchers/facture', 'CheckoutController@invoice')->name('cart.invoice');
+
+    Route::post('/mesenchers/confirm', 'CheckoutController@store')->name('Checkout.store');
+
+});
+
 
 
 
@@ -48,12 +60,13 @@ Route::get('/videenchers', function () {
 });
 
 
-/*Invoice */
-Route::get('/mesenchers/facture', 'CheckoutController@invoice')->name('cart.invoice');
 
-Route::post('/mesenchers/confirm', 'CheckoutController@store')->name('Checkout.store');
 
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
