@@ -41,7 +41,7 @@
     <div class="header--sidebar"></div>
 
   
-
+  
 
     @yield('content')
 

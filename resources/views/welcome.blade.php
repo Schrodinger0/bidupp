@@ -16,10 +16,8 @@
              
             </div>
           <div class="navigation__column right">
-            <form class="ps-search--header" action="do_action" method="post">
-              <input class="form-control" type="text" placeholder="Search Product…">
-              <button><i class="ps-icon-search"></i></button>
-            </form>
+            @include('partials.search')
+
             <div class="ps-cart"><a class="ps-cart__toggle" href="{{ route('cart.index') }}"><span><i>{{Cart::count()}}</i></span><i class="fa fa-trophy" aria-hidden="true"></i></a>
             </div>
   
@@ -92,6 +90,16 @@
         <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
       </div>
     </div>
+
+    @if (count($errors) > 0)
+    <div class="alert alert-danger">
+      <ul class="mb-0 mt-0">
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+@endif
     <main class="ps-main">
       <div class="ps-section--features-product ps-section masonry-root pt-100 pb-100">
         <div class="ps-container">

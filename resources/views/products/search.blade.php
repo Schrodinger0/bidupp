@@ -27,7 +27,7 @@
 
       <div class="topnav">
               <a  href="././">Acceuil <img src="{{ asset('images/home.png')}}" alt="" style="height:21px;width:21px;"></a>
-              <a class="active" href="#">Tout Voir <img src="{{ asset('images/all.png')}}" alt="" style="height:21px;width:21px;"></a>
+              <a href="././tout">Tout Voir <img src="{{ asset('images/all.png')}}" alt="" style="height:21px;width:21px;"></a>
               <a href="././activite">Activités <img src="{{ asset('images/activity.png')}}" alt="" style="height:21px;width:21px;"></a>
               <a href="././beaute">Beauté <img src="{{ asset('images/beaute.png')}}" alt="" style="height:21px;width:21px;"></a>
               <a href="././formation">Formation <img src="{{ asset('images/formation.png')}}" alt="" style="height:21px;width:21px;"></a>
@@ -62,19 +62,28 @@
       </ul>
     </div>
 @endif
+
+
     <main class="ps-main">
         <main class="ps-main">
             <div class="ps-section--features-product ps-section masonry-root pt-100 pb-100">
               <div class="ps-container">
                 <div class="ps-section__header mb-50">
-                  <h3 class="ps-section__title" data-mask="Tout Voir">Tout Voir</h3>
+                  <h3 class="ps-section__title" data-mask="Recherche">Recherche</h3>
                 
                 </div>
                 <div class="ps-section__content pb-50">
                   <div class="masonry-wrapper" data-col-md="4" data-col-sm="2" data-col-xs="1" data-gap="30" data-radio="100%">
                     <div class="ps-masonry">
                       <div class="grid-sizer"></div>
+
+                      @if (request()->input('q'))
+                      <h5 style="position: absolute; margin-top:-30px;"> {{ $products->total() }} résultat(s) pour la recherche "{{ request()->q }}"</h5>
+                    
                   
+                      @endif
+                    
+
                       @foreach ($products as $product)
                       <div class="grid-item men">
                             <div class="grid-item__content-wrapper">
