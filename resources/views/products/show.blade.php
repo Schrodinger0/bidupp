@@ -100,6 +100,11 @@
                     <h1>{{ $product->title }}</h1>
                     <p class="ps-product__category"><a href="#">{{ $product->created_at->format('d/m/y') }}</p>
                     <h3 class="ps-product__price"> BidderPrice .Dt <del>{{ $product->price }} .DT</del></h3>
+
+                    <p class="ps-product__category"><a href="#">   @foreach ($product->categories as $category)
+                      {{ $category->name }}{{ $loop->last ? '' : ', '}}
+                  @endforeach</p>
+
                     <div class="ps-product__block ps-product__quickview">
                       <h2>00:00:00:00</h2>
                    
@@ -107,21 +112,12 @@
                  
                     <div class="ps-product__block ps-product__size">
                       <h4>DÉFINISSEZ VOTRE OFFRE</h4>
-                      <select class="ps-select selectpicker">
-                        <option value="1">VOTRE OFFRE</option>
-                        <option value="2">4</option>
-                        <option value="3">5</option>
-                        <option value="3">6</option>
-                        <option value="3">7</option>
-                        <option value="3">8</option>
-                        <option value="3">9</option>
-                        <option value="3">10</option>
-                      </select>
+                    
                       <div class="form-group">
-                        <input class="form-control" type="number" value="1"> 
+                        <input class="form-control" type="number" value="1" style="width: 180px"> 
                         
                       </div>
-                      <h3 style="margin-left:355px;margin-top:-40px;">.DT</h3>
+                      <h3 style="margin-left:200px;margin-top:-40px;">.DT</h3>
                     </div>
                     <div class="ps-product__shopping">
 

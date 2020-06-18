@@ -93,5 +93,7 @@
           </div>
         </div>
       </div>
-     
+      <div class="paginationnn" style="margin-left:85%;margin-top:-130px;">
+        {{ $products->appends(request()->input())->links() }}
+       </div>
       @endsection
