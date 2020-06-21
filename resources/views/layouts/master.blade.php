@@ -13,6 +13,9 @@
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
     <title>Bidup</title>
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
     <!-- Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:300,400,700%7CMontserrat:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('plugins/font-awesome/css/font-awesome.min.css')}}">
@@ -30,6 +33,9 @@
     <link rel="stylesheet" href="{{ asset('plugins/revolution/css/navigation.css')}}">
     <!-- Custom-->
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+
+    <link rel="stylesheet" href="{{ asset('css/ecommerce.css') }}">
+
     <!--HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!--WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="{{ asset('')}}https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
@@ -46,7 +52,7 @@
     @yield('content')
 
 
-      <div class="ps-footer bg--cover" data-background="{{ asset('assets/images/ss-judge-ruling-gavel.jpg')}}">
+    <div class="ps-footer bg--cover" data-background="{{ asset('assets/images/ss-judge-ruling-gavel.jpg')}}">
         <div class="ps-footer__content">
           <div class="ps-container">
             <div class="row">
@@ -234,5 +240,7 @@
 <script type="text/javascript" src="{{ asset('plugins/revolution/js/extensions/revolution.extension.actions.min.js')}}"></script>
     <!-- Custom scripts-->
     <script type="text/javascript" src="{{ asset('js/main.js')}}"></script>
+
+    
   </body>
 </html>

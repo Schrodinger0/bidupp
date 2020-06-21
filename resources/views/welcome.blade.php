@@ -13,7 +13,7 @@
             <div class="header__logo"><a class="ps-logo" href="index.html"><img src="{{ asset('images/logo.png')}}" alt="" style=" width:70px; height:70px; margin-bottom:20px;"></a></div>
           </div>
           <div class="navigation__column center">
-             
+        
             </div>
           <div class="navigation__column right">
             @include('partials.search')
@@ -23,6 +23,10 @@
   
         </div>
 
+    
+       <div class="degl" style="position: absolute; margin-left:70%; margin-top:2%; width:400px;">
+          @include('partials.auth')
+        </div> 
 
       </nav>
 
@@ -39,6 +43,8 @@
        <a href="././sport">Sport <img src="{{ asset('images/sport.png')}}" alt="" style="height:21px;width:21px;"></a>
         <a href="././shopping">Shopping <img src="{{ asset('images/shopping.png')}}" alt="" style="height:21px;width:21px;"></a>
         <a href="././ville">Ma ville <img src="{{ asset('images/map.png')}}" alt="" style="height:21px;width:21px;"></a>
+    
+        
 
       </div>
       
@@ -100,6 +106,7 @@
       </ul>
     </div>
 @endif
+
     <main class="ps-main">
       <div class="ps-section--features-product ps-section masonry-root pt-100 pb-100">
         <div class="ps-container">

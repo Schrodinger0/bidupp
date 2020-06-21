@@ -93,7 +93,9 @@ color: white;
             </div>
   
         </div>
-
+        <div class="degl" style="position: absolute; margin-left:70%; margin-top:2%; width:400px;">
+          @include('partials.auth')
+        </div>
 
       </nav>
 
