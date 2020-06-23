@@ -26,9 +26,12 @@
   
         </div>
 
-        <div class="degl" style="position: absolute; margin-left:70%; margin-top:2%; width:400px;">
+       
+        <div class="degl" style="position: absolute; margin-left:50%; margin-top:-4%; width:400px;">
           @include('partials.auth')
         </div>
+
+
       </nav>
 
 
@@ -83,21 +86,39 @@
                     <div class="ps-product__preview">
                       <div class="ps-product__variants">
                         <div class="item"><img src="{{ asset('storage/'.$product->image)}}" alt=""></div>
-                        <div class="item"><img src="{{ asset('images/shoe-detail/2.jpg')}}" alt=""></div>
-                        <div class="item"><img src="{{ asset('images/shoe-detail/3.jpg')}}" alt=""></div>
-                        <div class="item"><img src="{{ asset('images/shoe-detail/3.jpg')}}" alt=""></div>
-                        <div class="item"><img src="{{ asset('images/shoe-detail/3.jpg')}}" alt=""></div>
+
+                 @if ($product->images)
+
+
+                      @foreach (json_decode($product->images, true) as $image)
+                        <div class="item"><img src="{{ asset('storage/' . $image) }}" alt=""></div>
+                      @endforeach
+                @endif
                       </div>
                     </div>
                     <div class="ps-product__image">
                       <div class="item"><img class="zoom" src="{{ asset('storage/'.$product->image)}}" alt="" data-zoom-image="{{ asset('storage/'.$product->image)}}"></div>
-                      <div class="item"><img class="zoom" src="images/shoe-detail/2.jpg" alt="" data-zoom-image="images/shoe-detail/2.jpg"></div>
-                      <div class="item"><img class="zoom" src="{{ asset('images/shoe-detail/3.jpg')}}" alt="" data-zoom-image="{{ asset('images/shoe-detail/3.jpg')}}"></div>
+                      @if ($product->images)
+
+                    @foreach (json_decode($product->images, true) as $image)
+                      <div class="item"><img class="zoom" src="{{ asset('storage/' . $image) }}" alt="" data-zoom-image="{{ asset('storage/' . $image) }}"></div>
+                    @endforeach
+                     
+                    @endif
+
+
+
                     </div>
                   </div>
                   <div class="ps-product__thumbnail--mobile">
                     <div class="ps-product__main-img"><img src="{{ asset('storage/'.$product->image)}}" alt=""></div>
-                    <div class="ps-product__preview owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="20" data-owl-nav="true" data-owl-dots="false" data-owl-item="3" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="3" data-owl-item-lg="3" data-owl-duration="1000" data-owl-mousedrag="on"><img src="images/shoe-detail/1.jpg" alt=""><img src="images/shoe-detail/2.jpg" alt=""><img src="{{ asset('images/shoe-detail/3.jpg')}}" alt=""></div>
+                    <div class="ps-product__preview owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="20" data-owl-nav="true" data-owl-dots="false" data-owl-item="3" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="3" data-owl-item-lg="3" data-owl-duration="1000" data-owl-mousedrag="on"><img src="{{ asset('storage/'.$product->image)}}" alt="">
+                      @if ($product->images)
+                      @foreach (json_decode($product->images, true) as $image)
+                      <img src="{{ asset('storage/' . $image) }}" alt="">
+                      @endforeach
+                      @endif
+                    </div>
                   </div>
                   <div class="ps-product__info">
 
@@ -195,3 +216,5 @@
           </div>
      
           @endsection
+
+        

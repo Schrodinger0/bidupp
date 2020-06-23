@@ -23,17 +23,17 @@
                     {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
 
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" style="width: 50px; color:black;" href="#">
-                        Mon Profile
-                        <img src="{{ asset('images/profile.png') }}" alt="profile" style="height: 30px; width:30px; margin-left:20px;">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="padding-left: 10px;">
+                    <a class="dropdown-item" style="width: 50px; color:black;" href="{{ route('home') }}">
+                        <h5>Mon Profile</h5>
+                        <img src="{{ asset('images/profile.png') }}" alt="profile" style="height: 30px; width:30px; position:absolute; margin-left:100px; margin-top:-25px;">
                     </a>
                         <hr>
                     <a class="dropdown-item" style="width: 50px; color:black;" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
-                     {{ __('Logout') }}
-                     <img src="{{ asset('images/logout.png') }}" alt="logout" style="height: 30px; width:30px; margin-left:20px;">
+                     <h5>{{ __('Logout') }}</h5>
+                     <img src="{{ asset('images/logout.png') }}" alt="logout" style="height: 20px; width:25px; margin-left:20px;margin-left:100px; margin-top:-25px;">
 
                  </a>
 
