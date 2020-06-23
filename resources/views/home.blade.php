@@ -110,18 +110,16 @@ button:hover, a:hover {
                   <h3 class="ps-section__title" data-mask="Profile">Profile</h3>
                 
              
-                    <!-- Add icon library -->
 
-<div class="card">
-  <img src="#" alt="John" style="width:100%">
-  <h1>John Doe</h1>
-  <p class="title">Auth()->user()->id;</p>
-  <p>Harvard University</p>
-  <a href="#"><i class="fa fa-dribbble"></i></a>
-  <a href="#"><i class="fa fa-twitter"></i></a>
-  <a href="#"><i class="fa fa-linkedin"></i></a>
-  <a href="#"><i class="fa fa-facebook"></i></a>
-  <p><button>Contact</button></p>
+<div class="card" style="padding-top:50px; width:400px;">
+
+<img src="{{ asset('storage/'.Auth::user()->avatar)}}" alt="Avatar" style="  border-radius: 50%; width:150px; heigt:150px;">
+
+  <h1> {{ Auth::user()->name }}</h1>
+  <p class="title"> {{ Auth::user()->email }}</p>
+  <p>{{ Auth::user()->role->name }}</p>
+ 
+  <p><button>Update Info</button></p>
 </div>
 
      

@@ -204,9 +204,9 @@
             <h3 style="color: white;"><i class="fa fa-envelope"></i>Inscrivez vous à notre Newsletter</h3>
           </div>
           <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12 ">
-            <form class="ps-subscribe__form" action="do_action" method="post">
+            <form class="ps-subscribe__form" action="/newsletter" method="POST">
               <input class="form-control" type="text" placeholder="">
-              <button>s'inscrire</button>
+              <button type="submit">s'inscrire</button>
             </form>
           </div>
           <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">
