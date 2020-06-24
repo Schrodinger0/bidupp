@@ -36,7 +36,21 @@
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 
     <link rel="stylesheet" href="{{ asset('css/ecommerce.css') }}">
+<style>
+  .new-rect {
+    background: yellow;
+    width: 50%;
+    height: 30px;
+}
 
+.faza-rect{
+  background: pink;
+  width: 50%;
+  height: 30px;
+  border-color: green;
+}
+
+</style>
     <!--HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!--WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="{{ asset('')}}https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
@@ -204,8 +218,9 @@
             <h3 style="color: white;"><i class="fa fa-envelope"></i>Inscrivez vous à notre Newsletter</h3>
           </div>
           <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12 ">
-            <form class="ps-subscribe__form" action="/newsletter" method="POST">
-              <input class="form-control" type="text" placeholder="">
+            <form class="ps-subscribe__form" action="{{ route('newsletter.save') }}" method="POST">
+              @csrf
+              <input name="email" class="form-control" type="email" placeholder="JhonDoe@bidup.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
               <button type="submit">s'inscrire</button>
             </form>
           </div>
@@ -241,7 +256,55 @@
 <script type="text/javascript" src="{{ asset('plugins/revolution/js/extensions/revolution.extension.actions.min.js')}}"></script>
     <!-- Custom scripts-->
     <script type="text/javascript" src="{{ asset('js/main.js')}}"></script>
+    <script>
 
-    
+      var minutes = 5;
+      var milliseconds = minutes*60*1000;
+
+      function time(milliseconds){
+        seconds = Math.floor(milliseconds/1000);
+        var hou = Math.floor(seconds/3600);
+        var min = Math.floor(seconds/60)%60;
+        var sec = seconds%60;
+        if(Math.floor(hou/10)==0){
+          hou = "0"+hou;
+        }
+        if(Math.floor(min/10)==0){
+          min = '0'+min;
+        }
+        if(Math.floor(sec/10)==0){
+          sec = "0"+sec;
+        }
+        return hou+":"+min+":"+sec;
+      }
+      var timer = setInterval(()=>{
+        //console.log(milliseconds);
+        milliseconds -= 1000;
+        document.getElementById("bidb").innerHTML = "J'encheris";
+        document.getElementById("timer").innerHTML = time(milliseconds);
+        if(milliseconds==0){
+          var div = document.createElement('div');
+          div.className = "faza-rect";
+          div.innerHTML = "Thank You";
+          document.getElementById('bidb').replaceWith(div);
+          clearInterval(timer);
+        }
+      },1000);
+      function appendDiv(username){
+        var ok = true;
+          if (ok === true) {
+                var div = document.createElement('div');
+                var date = new Date();
+                div.className = 'new-rect';
+                div.innerHTML = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+" "+username;
+                  //div.style.backgroundColor = "black";
+
+            document.getElementsByTagName('body')[0].appendChild(div);
+          }
+      }
+      document.getElementById("bidb").onclick = function (){
+        appendDiv("username");
+      };
+    </script>
   </body>
 </html>

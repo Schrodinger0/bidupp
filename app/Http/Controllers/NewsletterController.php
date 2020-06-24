@@ -4,17 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Newsletter;
+
 class NewsletterController extends Controller
-{
-    public function storeMail(){
-
-        $mail = new Mail();
-
-        $mail->email = request('email');
-
-        $email->save();
-
+{ 
+    public function storemail( Request $req){
+   
+        $mail = new Newsletter;
+        $mail->email = $req->email;
+        $mail->save();
         return redirect('/');
-
     }
+ 
 }

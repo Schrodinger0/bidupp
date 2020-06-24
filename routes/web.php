@@ -73,4 +73,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 /* newsletter */ 
-Route::post('/newsletter','NewsletterController@storeMail');
+
+Route::post('/newsletter','NewsletterController@storeMail')->name('newsletter.save');;
