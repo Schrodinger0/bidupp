@@ -137,10 +137,10 @@
                   @endforeach</p>
 
                     <div class="ps-product__block ps-product__quickview">
-                      <h2><div id="timer" class="timer"></h2>
+                      <h2><div id="timer" class="timer">00:00:00</h2>
 
                     </div>
-                 
+            <div class="sondos" id="aya">   
                     <div class="ps-product__block ps-product__size">
                       <h4>DÉFINISSEZ VOTRE OFFRE</h4>
                     
@@ -165,9 +165,8 @@
                       
                     </form>
 
+            </div>  
 
-
-                      <div class="ps-product__actions"><a class="mr-10" href="whishlist.html"><i class="ps-icon-heart"></i></a><a href="compare.html"><i class="ps-icon-share"></i></a></div>
                     </div>
                   </div>
                   <div class="clearfix"></div>
@@ -217,52 +216,3 @@
      
           @endsection
 
-        <script>
-          var minutes = 2;
-var milliseconds = minutes*60*1000;
-
-function time(milliseconds){
-	seconds = Math.floor(milliseconds/1000);
-  var hou = Math.floor(seconds/3600);
-  var min = Math.floor(seconds/60)%60;
-  var sec = seconds%60;
-  if(Math.floor(hou/10)==0){
-  	hou = "0"+hou;
-  }
-  if(Math.floor(min/10)==0){
-  	min = '0'+min;
-  }
-  if(Math.floor(sec/10)==0){
-  	sec = "0"+sec;
-  }
-  return hou+":"+min+":"+sec;
-}
-var timer = setInterval(()=>{
-	//console.log(milliseconds);
-  milliseconds -= 1000;
-  document.getElementById("button").innerHTML = "Bid!";
-  document.getElementById("timer").innerHTML = time(milliseconds);
-  if(milliseconds==0){
-  	var div = document.createElement('div');
-    div.className = "faza-rect";
-    div.innerHTML = "Thank You";
-		document.getElementById('button').replaceWith(div);
-  	clearInterval(timer);
-  }
-},1000);
-function appendDiv(username){
-	var ok = true;
-     if (ok === true) {
-          var div = document.createElement('div');
-           var date = new Date();
-          div.className = 'new-rect';
-          div.innerHTML = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+" "+username;
-            //div.style.backgroundColor = "black";
-
-       document.getElementsByTagName('body')[0].appendChild(div);
-    }
-}
-document.getElementById("button").onclick = function (){
-	appendDiv("username");
-};
-        </script>

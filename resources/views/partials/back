@@ -1,0 +1,49 @@
+<script>
+              //   console.log( "{{ Auth::user()->role->name }}");
+                   var role_user = "{{ Auth::user()->role->name }}"; 
+                   if((role_user == "Super Admin")||(role_user == "admin")||(role_user == "Auctionner")){
+                     console.log('verified');
+                     var dashya7aj = document.createElement('button');
+                //     var ayacherira = document.createElement('div');
+
+                window.onload = function(){
+                    console.log("LOADED");
+                        dashya7aj.id = "dashya7ajneedsaclass";
+                        dashya7aj.innerHTML = "Access to Dashboard";
+                        dashya7aj.onclick = function() { 
+                            window.location = "./admin";
+                        };
+                        document.getElementById('samir').replaceWith(dashya7aj);
+
+                       // ayacherira.innerHTML = "<h5>Sorry You can't Bid using this Auccount</h5>";
+       
+                   //     document.getElementById('aya').replaceWith(ayacherira);
+
+                     };
+                   }
+                  </script>
+
+<script>
+    //   console.log( "{{ Auth::user()->role->name }}");
+         var role_user = "{{ Auth::user()->role->name }}"; 
+         if((role_user == "Super Admin")||(role_user == "admin")||(role_user == "Auctionner")){
+         //  console.log('verified');
+          // var dashya7aj = document.createElement('button');
+          var ayacherira = document.createElement('div');
+
+           window.onload = function(){
+         
+            ayacherira.id = "dashya7ajneedsaclass";
+            ayacherira.className="alert alert-dismissible alert-danger";
+            ayacherira.innerHTML = "<h5>Sorry You can't Bid using this Account</h5>";
+            if(document.getElementById('aya')!=null)
+          
+              {document.getElementById('aya').replaceWith(ayacherira);}
+
+             // ayacherira.innerHTML = "<h5>Sorry You can't Bid using this Auccount</h5>";
+
+         //     document.getElementById('aya').replaceWith(ayacherira);
+
+           };
+         }
+        </script>

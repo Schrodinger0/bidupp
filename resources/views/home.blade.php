@@ -117,8 +117,8 @@ button:hover, a:hover {
 
   <h1> {{ Auth::user()->name }}</h1>
   <p class="title"> {{ Auth::user()->email }}</p>
-  <p>{{ Auth::user()->role->name }}</p>
- 
+  <p>{{ Auth::user()->role->display_name }}</p>
+  <p><p id="samir"></p></p>
   <p><button>Update Info</button></p>
 </div>
 
