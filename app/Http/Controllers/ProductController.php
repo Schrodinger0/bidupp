@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ville;
 use Illuminate\Http\Request;
 use App\Product;
 
@@ -21,7 +22,7 @@ class ProductController extends Controller
         })->orderBy('created_at', 'DESC')->paginate(8);
         return view('products.activite')->with('products', $products);
     }
-    
+
     public function beaute()
     {
         $products = Product::with('categories')->whereHas('categories', function ($query) {
@@ -65,14 +66,15 @@ class ProductController extends Controller
         return view('products.shopping')->with('products', $products);
     }
 
-    //Show Using location from map 
+    //Show Using location from map
     public function ville()
     {
+        $villes = Ville::all();
         $products = Product::inRandomOrder()->take(12)->get();
-        return view('products.ville')->with('products', $products);;
+        return view('products.ville')->with(compact('villes', 'products'));
     }
 
-    
+
 
     public function show($slug)
     {

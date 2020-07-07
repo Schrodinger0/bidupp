@@ -75,7 +75,7 @@ color: white;
     <header class="header">
       <div class="header__top">
         <div class="container-fluid">
-       
+
         </div>
       </div>
       <nav class="navigation">
@@ -84,14 +84,14 @@ color: white;
             <div class="header__logo"><a class="ps-logo" href="index.html"><img src="images/logo.png" alt="" style=" width:70px; height:70px; margin-bottom:20px;"></a></div>
           </div>
           <div class="navigation__column center">
-             
+
             </div>
           <div class="navigation__column right">
             @include('partials.search')
 
             <div class="ps-cart"><a class="ps-cart__toggle" href="{{ route('cart.index') }}"><span><i>{{Cart::count()}}</i></span><i class="fa fa-trophy" aria-hidden="true"></i></a>
             </div>
-  
+
         </div>
         <div class="degl" style="position: absolute; margin-left:70%; margin-top:2%; width:400px;">
           @include('partials.auth')
@@ -112,13 +112,13 @@ color: white;
            <a href="././sport">Sport <img src="{{ asset('images/sport.png')}}" alt="" style="height:21px;width:21px;"></a>
             <a href="././shopping">Shopping <img src="{{ asset('images/shopping.png')}}" alt="" style="height:21px;width:21px;"></a>
             <a class="active" href="#">Ma ville <img src="{{ asset('images/map.png')}}" alt="" style="height:21px;width:21px;"></a>
-    
+
 
       </div>
-      
 
 
-     
+
+
     </header>
 </div>
 
@@ -131,28 +131,30 @@ color: white;
   </ul>
 </div>
 @endif
- 
+
       <main class="ps-main">
           <div class="ps-section--features-product ps-section masonry-root pt-100 pb-100">
             <div class="ps-container">
               <div class="ps-section__header mb-50">
                   <h3 class="ps-section__title" data-mask="Ville">Ma Ville</h3>
-               
+
               </div>
 
-              <form action="#" method="get">
+                  <form name="villes" method="get">
 
                   <div class="box">
-                      <select  name="ville[]">
-                        @foreach ($products->villes as $ville)
-                        <OPTION value="{{ $ville->name }}">  {{ $ville->name }}<OPTION>
-                    @endforeach
-                      
+                      <select  id="bovilles">
+                        <OPTION value="0">Toute la Tunisie</OPTION>
+
+                          @foreach ($villes as $ville)
+                              @if(isset($ville->id))
+                                  <OPTION value="{{ $ville->id }}">{{ $ville->name }}</OPTION>
+                              @endif
+                          @endforeach
                       </select>
                     </div>
-               
-    
-                  <input type="submit" value="Chercher des Offres" class="degla">
+                <input id="submit" type="submit" value="Chercher des Offres" class="degla">
+
                   </form>
 
 
@@ -162,7 +164,7 @@ color: white;
                     <div class="grid-sizer"></div>
 
 
-                 
+
                     @foreach ($products as $product)
                     <div class="grid-item men">
                           <div class="grid-item__content-wrapper">
@@ -172,7 +174,7 @@ color: white;
                               <div class="ps-shoe__content">
                                 <div class="ps-shoe__variants">
                                   <div class="normal">
-                                  <h3 style="padding-left:30%;">00:00:00</h3>  
+                                  <h3 style="padding-left:30%;">00:00:00</h3>
                                   </div>
                                   <p>{{ $product->created_at->format('d/m/y') }}</p>
                                 </div>
@@ -184,13 +186,31 @@ color: white;
                           </div>
                         </div>
                     @endforeach
-              
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="paginationnn" style="margin-left:85%;margin-top:-130px;">
-            {{ $products->appends(request()->input())->links() }}
-           </div>
+          <script>
+     // JqueyTRY
+          $( window ).ready(function() {
+                              $("#submit").on('click', function(){
+                        //window.location.href = "/ville/"+$(  "#villes option:selected").val();
+                         console.log( "#bovilles option:selected").val();
+                       });
+            });
+     //  meh
+     
+  //   window.onload = function(){
+
+    //      function myFunction() {
+     //          var e = document.getElementById("bovilles");
+      //         var strUser = e.options[e.selectedIndex].value;
+     //          alert(e);}
+      //    }
+          
+
+          </script>
+
           @endsection

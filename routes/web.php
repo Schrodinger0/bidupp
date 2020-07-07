@@ -25,15 +25,15 @@ Route::get('/hotel', 'ProductController@hotel')->name('products.hotel');
 Route::get('/sport', 'ProductController@sport')->name('products.sport');
 Route::get('/shopping', 'ProductController@shopping')->name('products.shopping');
 Route::get('/ville', 'ProductController@ville')->name('products.ville');
+Route::get('/ville/{id}', 'VilleController@show')->name('ville.show');
 Route::get('/tout/{slug}', 'ProductController@show')->name('products.show');
 Route::get('/search', 'ProductController@search')->name('products.search');
 
  /*ville search route
 
- Route::get('/ville/{ville}', 'VilleController@show')->name('ville.show');
-*/ 
+*/
 
-/* Enchers Route */ 
+/* Enchers Route */
 
 Route::get('/mesenchers', 'CartController@index')->name('cart.index');
 
@@ -72,6 +72,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-/* newsletter */ 
+/* newsletter */
 
 Route::post('/newsletter','NewsletterController@storeMail')->name('newsletter.save');;
