@@ -255,7 +255,8 @@
 <script type="text/javascript" src="{{ asset('plugins/revolution/js/extensions/revolution.extension.parallax.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('plugins/revolution/js/extensions/revolution.extension.actions.min.js')}}"></script>
     <!-- Custom scripts-->
-    <script type="text/javascript" src="{{ asset('js/main.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/main.js')}}">
+    </script>
  
   </body>
 </html>

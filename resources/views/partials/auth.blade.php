@@ -45,31 +45,35 @@
             </li>
 
             <script>
-                   var role_user = "{{ Auth::user()->role->name }}"; 
-                   if((role_user == "Super Admin")||(role_user == "admin")||(role_user == "Auctionner")){
-                     console.log('verified');
-                     var dashya7aj = document.createElement('button');
-                     var ayacherira = document.createElement('div');
-                     window.onload = function(){
-                        console.log("LOADED");
-                        dashya7aj.id = "dashya7ajneedsaclass";
-                        dashya7aj.innerHTML = "Access to Dashboard";
-                        dashya7aj.onclick = function() { 
-                            window.location = "./admin";
-                        };
-                        ayacherira.id = "dashya7ajneedsaclass";
-                        ayacherira.className="alert alert-dismissible alert-danger";
-                        ayacherira.innerHTML = "<h5>Sorry You can't Bid using this Account</h5>";
-                        if(document.getElementById('samir')!=null)
-                        {
-                            document.getElementById('samir').replaceWith(dashya7aj);
-                        }
-                        if(document.getElementById('aya')!=null)
-                        {
-                            document.getElementById('aya').replaceWith(ayacherira);
-                        }
-                     };
-                   }
+                function authBlade(){
+                    var role_user = "{{ Auth::user()->role->name }}"; 
+                    if((role_user == "Super Admin")||(role_user == "admin")||(role_user == "Auctionner")){
+                      console.log('verified');
+                      var dashya7aj = document.createElement('button');
+                      var ayacherira = document.createElement('div');
+                      window.onload = function(){
+                         console.log("LOADED");
+                         dashya7aj.id = "dashya7ajneedsaclass";
+                         dashya7aj.innerHTML = "Access to Dashboard";
+                         dashya7aj.onclick = function() { 
+                             window.location = "./admin";
+                         };
+                         ayacherira.id = "dashya7ajneedsaclass";
+                         ayacherira.className="alert alert-dismissible alert-danger";
+                         ayacherira.innerHTML = "<h5>Sorry You can't Bid using this Account</h5>";
+                         if(document.getElementById('samir')!=null)
+                         {
+                             document.getElementById('samir').replaceWith(dashya7aj);
+                         }
+                         if(document.getElementById('aya')!=null)
+                         {
+                             document.getElementById('aya').replaceWith(ayacherira);
+                         }
+                      };
+                    }
+                }
+                authBlade();
+                console.log("auth-blade");
         </script>
 
 

@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Cart;
+
 use App\Product;
-use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Redirect;
 
 class CartController extends Controller
 {
@@ -14,7 +17,8 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('cart.index');
+        $cart = Cart::all();
+        return view ('products.show')->with('cart',$cart); 
     }
 
     /**
@@ -35,14 +39,43 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+         $prod_id=$request->input('id');
 
-        /*change it to the condition of higher price + timer end */ 
-        Cart::add($request->id, $request->title, 1, $request->price)
-        ->associate('App\Product');
+         
+        $maxValue = Cart::where('product_id',$prod_id)->max('amount');
         
-        return redirect()->route('products.show',$request->slug)->with('success', 'Votre offre a été miser');
 
+        // if ($maxValue<$request->input('price')){
+        //     $maxValue=$request->input('price');
+        // }
+
+        $amount=$request->input('mont');
+       
+        $cart = new Cart;
+        $cart->user_id=auth()->user()->id;
+        $cart->user_name=auth()->user()->name;
+        $cart->product_id = $prod_id;
+        $cart->product_title = $request->input('title');
+        $cart->slug=$request->input('slug');
+        $cart->bid_time=Carbon::now();
+        //$amount=$request->input('price')+$request->input('mont');  
+        $cart->amount =$amount+$maxValue; 
+        $cart->save();
+
+
+        // return redirect()->route('products.ind',[$request->input('slug')])->with('success', 'bid added');
+        return redirect::back()->with('success', 'bid added');
     }
+
+
+
+        // /*change it to the condition of higher price + timer end */ 
+        // Cart::add($request->id, $request->title, 1, $request->price)
+        // ->associate('App\Product');
+        
+        // return redirect()->route('products.show',$request->slug)->with('success', 'Votre offre a été miser');
+
+    
 
     /**
      * Display the specified resource.
@@ -52,7 +85,8 @@ class CartController extends Controller
      */
     public function show($id)
     {
-        //
+        // $cart=Cart::find($id);
+        // return view ('products.showtab')->with('cart',$cart); 
     }
 
     /**

@@ -28,7 +28,7 @@ color: white;
    .box {
   position: absolute;
   top: 50%;
-  left: 66%;
+  left: 87%;
   transform: translate(-50%, -50%);
 }
 
@@ -143,7 +143,7 @@ color: white;
                   <form name="villes" method="get">
 
                   <div class="box">
-                      <select  id="bovilles">
+                      <select  id="bovilles" >
                         <OPTION value="0">Toute la Tunisie</OPTION>
 
                           @foreach ($villes as $ville)
@@ -153,7 +153,6 @@ color: white;
                           @endforeach
                       </select>
                     </div>
-                <input id="submit" type="submit" value="Chercher des Offres" class="degla">
 
                   </form>
 
@@ -193,23 +192,16 @@ color: white;
             </div>
           </div>
           <script>
-     // JqueyTRY
-          $( window ).ready(function() {
-                              $("#submit").on('click', function(){
-                        //window.location.href = "/ville/"+$(  "#villes option:selected").val();
-                         console.log( "#bovilles option:selected").val();
-                       });
-            });
-     //  meh
      
-  //   window.onload = function(){
+     var bs = document.getElementById("bovilles");
+     bs.onchange = function(){
+       console.log(bs.value);
+       if(bs.value==0){
+        window.location.href = "./ville/";
 
-    //      function myFunction() {
-     //          var e = document.getElementById("bovilles");
-      //         var strUser = e.options[e.selectedIndex].value;
-     //          alert(e);}
-      //    }
-          
+       }else
+       window.location.href = "./ville/"+bs.value;
+     };
 
           </script>
 

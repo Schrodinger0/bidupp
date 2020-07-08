@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Ville;
 use Illuminate\Http\Request;
 use App\Product;
+use App\Cart;
 
 
 class ProductController extends Controller
@@ -76,12 +77,19 @@ class ProductController extends Controller
 
 
 
+  
     public function show($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
+        //$cart = Cart::all();
+         $cart = Cart::where('slug', $slug)->get();
+        //return view('products.show')->with('product', $product);
 
-        return view('products.show')->with('product', $product);
+         return view('products.show',['product'=> $product,'cart'=>$cart]);
     }
+  
+
+
 
     public function search()
     {
