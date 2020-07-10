@@ -130,8 +130,20 @@
               
                     <h1>{{ $product->title }}</h1>
                     <p class="ps-product__category"><a href="#">{{ $product->created_at->format('d/m/y') }}</p>
-                      <h4 class="ps-product__price" id='lastBidder'>  Lastbidder</h4>
-                      <h3 class="ps-product__price" id="bidderPrice"> BidderPrice .Dt <del>{{ $product->price }} .DT</del></h3>
+                     
+                      
+
+                      @foreach ($cart as $pan)
+
+                      @if($loop->last)
+                      {{$last_bidder = $pan->user_id}}
+                       <h4 class="ps-product__price" id='lastBidder'>  {{$pan->user_name}}</h4>
+                        <h3 class="ps-product__price" id="bidderPrice">{{$pan->amount}} .Dt
+                          @endif
+                      @endforeach 
+                      <del>{{ $product->price }} .DT</del></h3>
+
+
 
                     <p class="ps-product__category"><a href="#">   @foreach ($product->categories as $category)
                       {{ $category->name }}{{ $loop->last ? '' : ', '}}
@@ -171,7 +183,6 @@
                           $t = date("i");   
                           $c=$product->created_at->format('i');
                           $x=$t-$c;
-                          // printf ($p);
                         ?>
 
 
@@ -241,8 +252,7 @@
                             
                           </tr>
                           @endforeach 
-                          
-                          <p></p>
+                         
                         </tbody>
                        
                     </table>
@@ -252,6 +262,23 @@
               </div>
             </div>
           </div>
+        
+          
+          {{$is_winner = "false"}}
+          {{$current_session =  Auth::user()->id }}
+  
+          @foreach ($cart as $pan)
+
+                  @if ( $current_session == $last_bidder ) 
+                  
+                 {{ $is_winner = "true"}}
+                 
+                  @else
+
+                  {{ $is_winner = "false"}}
+
+               @endif
+          @endforeach 
      
           @endsection
 
@@ -289,10 +316,10 @@
                 return hou+":"+min+":"+sec;
               }
               var timer;
-              var lastBidder = document.getElementById("lastBidder");
-              var lastPrice = document.getElementById("bidderPrice");
-              lastBidder.innerHTML="{{$pan->user_name}}";
-              lastPrice.innerHTML = "{{$pan->amount}} .Dt";
+             // var lastBidder = document.getElementById("lastBidder");
+             // var lastPrice = document.getElementById("bidderPrice");
+              //lastBidder.innerHTML="888";
+           //   lastPrice.innerHTML = "888 .Dt";
               if(milliseconds>0)
               {timer = setInterval(()=>{
                 //console.log(milliseconds);
@@ -310,11 +337,11 @@
                   timerDiv.innerHTML = "00:00:00";
                   var div = document.createElement('div');
                   div.className = "faza-rect";
-                  div.innerHTML = "Thank You";
+                  div.innerHTML = "This Auction is done";
                   bidBtn.onclick = null;
                   bidBtn.replaceWith(div);
                   clearInterval(timer);
-                }
+                } 
               },1000);}
               else{
                   console.log('milliseconds is null');
@@ -324,9 +351,13 @@
                   div.innerHTML = "This Auction is done";
                   document.getElementById('aya').replaceWith(div);
                 
+                
                 }
             }
             window.onload = function(){ showBlade();};
             console.log("show-blade");
-            
+            console.log("{{$is_winner}}");
+          
+            console.log("{{$current_session}}");
+
           </script>

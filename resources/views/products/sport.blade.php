@@ -87,7 +87,7 @@
                           <div class="ps-shoe__content">
                             <div class="ps-shoe__variants">
                               <div class="normal">
-                              <h3 style="padding-left:30%;">00:00:00</h3>  
+                                <p>{!! $product->description !!}</p>  
                               </div>
                               <p>{{ $product->created_at->format('d/m/y') }}</p>
                             </div>
