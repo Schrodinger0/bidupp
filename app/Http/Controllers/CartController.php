@@ -21,15 +21,8 @@ class CartController extends Controller
         return view ('products.show')->with('cart',$cart); 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    
+  
 
     /**
      * Store a newly created resource in storage.
@@ -45,9 +38,6 @@ class CartController extends Controller
         $maxValue = Cart::where('product_id',$prod_id)->max('amount');
         
 
-        // if ($maxValue<$request->input('price')){
-        //     $maxValue=$request->input('price');
-        // }
 
         $amount=$request->input('mont');
        
