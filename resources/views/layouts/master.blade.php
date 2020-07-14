@@ -212,7 +212,7 @@
           </div>
         </div>
         <div class="ps-footer__copyright">
-          <div class="ps-container">
+          <div class="ps-container"> 
         <div class="row">
           <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
             <h3 style="color: white;"><i class="fa fa-envelope"></i>Inscrivez vous à notre Newsletter</h3>

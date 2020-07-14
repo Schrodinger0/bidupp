@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->integer('price');
             $table->integer('duration');
-            $table->string('categorie');
+            $table->string('categorie')->default("null");
             $table->string('ville');
             $table->string('image');
             $table->timestamps();

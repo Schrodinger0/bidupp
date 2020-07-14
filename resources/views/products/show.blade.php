@@ -213,6 +213,7 @@
 
                        <button id="bidb" class="ps-btn mb-10"> <i class="ps-icon-next"></i></button>
                       
+                       <div id="winnerMan"></div>
                     </form>
 
                     </div>
@@ -325,6 +326,7 @@
                 //console.log(milliseconds);
                 milliseconds -= 1000;
                 var bidBtn = document.getElementById('bidb');
+                var winnerMan = document.getElementById('winnerMan');
                 var timerDiv = document.getElementById('timer');
                 timerDiv.innerHTML = time(milliseconds);
                 bidBtn.innerHTML = "J'encheris";
@@ -341,6 +343,13 @@
                   bidBtn.onclick = null;
                   bidBtn.replaceWith(div);
                   clearInterval(timer);
+                  if({{ $is_winner }} == "true"){
+                    var AddToCart = document.createElement('Button');
+                  div.className = "faza-rect";
+                  div.innerHTML = "win";
+                  winnerMan.replaceWith(AddToCart);
+
+                  }
                 } 
               },1000);}
               else{
@@ -358,6 +367,5 @@
             console.log("show-blade");
             console.log("{{$is_winner}}");
           
-            console.log("{{$current_session}}");
 
           </script>

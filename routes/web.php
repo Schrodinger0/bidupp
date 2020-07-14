@@ -29,9 +29,11 @@ Route::get('/ville/{id}', 'VilleController@show')->name('ville.show');
 Route::get('/tout/{slug}', 'ProductController@show')->name('products.show');
 Route::get('/search', 'ProductController@search')->name('products.search');
 
- /*ville search route
+ /*Auctioneer search route*/
+Route::get('/auctioneer', 'AuctioneerController@index')->name('Auctioneer');
+Route::post('/auct-form','AuctioneerController@store')->name('auctioneer.save');
 
-*/
+
 
 /* Enchers Route */
 

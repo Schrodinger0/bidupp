@@ -12,8 +12,8 @@
                 </li>
             @endif
         @else
-        <li style="margin-left: -40%">        <a href="#" > <img src="{{ asset('images/ami.png') }}" style="height: 20px; width:20px; margin-right: 10px;" alt=""> <br> <p style="color: black; margin-left:-30%;"> Parrainer Mes Amis </p></a> 
-        </li>
+                    <li id="switch_auct" style="margin-left: -40%"><a href="{{route('Auctioneer')}}" > <img src="{{ asset('images/ami.png') }}" style="height: 20px; width:20px; margin-right: 10px;" alt=""> <br> <p style="color: black; margin-left:-30%;"> Devient Vendeur ? </p></a> 
+                </li>
 <li>    <a href="#" > <img src="{{ asset('images/favoris.png') }}" style="height: 20px; width:20px; margin-right: 10px;" alt=""> <br> <p style="color: black; margin-left:-30%;"> Mes Favoris </p></a> 
 </li>
     
@@ -51,6 +51,8 @@
                       console.log('verified');
                       var dashya7aj = document.createElement('button');
                       var ayacherira = document.createElement('div');
+                      var already = document.createElement('div');
+
                       window.onload = function(){
                          console.log("LOADED");
                          dashya7aj.id = "dashya7ajneedsaclass";
@@ -69,8 +71,18 @@
                          {
                              document.getElementById('aya').replaceWith(ayacherira);
                          }
+                         already.innerHTML = " ";
+
+                         if(document.getElementById('switch_auct')!=null)
+                         {
+                             document.getElementById('switch_auct').replaceWith(already);
+                         }
+                     
                       };
                     }
+
+                   
+
                 }
                 authBlade();
                 console.log("auth-blade");
