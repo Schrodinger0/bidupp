@@ -91,9 +91,9 @@
 
     <div class="header-services">
       <div class="ps-services owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="7000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with BIDUP</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with BIDUP</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with BIDUP</p>
       </div>
     </div>
 
@@ -126,17 +126,17 @@
               <div class="grid-item men">
                     <div class="grid-item__content-wrapper">
                       <div class="ps-shoe mb-30">
-                        <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img src="{{ asset('storage/'.$product->image)}}" alt=""><a class="ps-shoe__overlay" href="{{ route('products.show', $product->slug) }}"></a>
+                        <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img src="{{ asset('storage/'.$product->image)}}" alt="" style="height: 200px; width : 500px; "><a class="ps-shoe__overlay" href="{{ route('products.show', $product->slug) }}"></a>
                         </div>
                         <div class="ps-shoe__content">
                           <div class="ps-shoe__variants">
                             <div class="normal">
-                              <p>{!! $product->description !!}</p>  
+                              <p>{!!  $product->subtitle  !!}</p>  
                             </div>
                             <p>{{ $product->created_at->format('d/m/y') }}</p>
                           </div>
                           <div class="ps-shoe__detail"><a class="ps-shoe__name" href="#">{{ $product->title }}</a>
-                            <p class="ps-shoe__categories">{{ $product->subtitle }}</p><span class="ps-shoe__price"> {{ $product->price }} .Dt</span>
+                            <p class="ps-shoe__categories"></p><span class="ps-shoe__price"> <del>{{ $product->price }}</del>  .Dt</span>
                           </div>
                         </div>
                       </div>
@@ -176,17 +176,17 @@
               @foreach ($products as $product)
               <div class="ps-shoes--carousel">
                 <div class="ps-shoe mb-30">
-                  <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img src="{{ asset('storage/'.$product->image)}}" alt=""><a class="ps-shoe__overlay" href="{{ route('products.show', $product->slug) }}"></a>
+                  <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img src="{{ asset('storage/'.$product->image)}}" alt="" style="height: 200px; width : 500px; "><a class="ps-shoe__overlay" href="{{ route('products.show', $product->slug) }}"></a>
                   </div>
                   <div class="ps-shoe__content">
                     <div class="ps-shoe__variants">
                       <div class="normal">
-                        <p>{!! $product->description !!}</p>  
+                        <p>{!!  $product->subtitle  !!}</p>  
                       </div>
                       <p>{{ $product->created_at->format('d/m/y') }}</p>
                     </div>
                     <div class="ps-shoe__detail"><a class="ps-shoe__name" href="#">{{ $product->title }}</a>
-                      <p class="ps-shoe__categories">{{ $product->subtitle }}</p><span class="ps-shoe__price"> {{ $product->price }} .Dt</span>
+                      <p class="ps-shoe__categories"></p><span class="ps-shoe__price"> <del>{{ $product->price }}</del>  .Dt</span>
                     </div>
                   </div>
                 </div>
@@ -200,58 +200,5 @@
           </div>
         </div>
       </div>
-      <div class="ps-home-testimonial bg--parallax pb-80" data-background="images/background/parallax.jpg">
-        <div class="container">
-          <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="false" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on" data-owl-animate-in="fadeIn" data-owl-animate-out="fadeOut">
-            <div class="ps-testimonial">
-              <div class="ps-testimonial__thumbnail"><img src="{{ asset('images/testimonial/1.jpg')}}" alt=""><i class="fa fa-quote-left"></i></div>
-              <header>
-                <select class="ps-rating">
-                  <option value="1">1</option>
-                  <option value="1">2</option>
-                  <option value="1">3</option>
-                  <option value="1">4</option>
-                  <option value="5">5</option>
-                </select>
-                <p>Logan May - CEO & Founder Invision</p>
-              </header>
-              <footer>
-                <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum croissant. “</p>
-              </footer>
-            </div>
-            <div class="ps-testimonial">
-              <div class="ps-testimonial__thumbnail"><img src="{{ asset('images/testimonial/2.jpg')}}" alt=""><i class="fa fa-quote-left"></i></div>
-              <header>
-                <select class="ps-rating">
-                  <option value="1">1</option>
-                  <option value="1">2</option>
-                  <option value="1">3</option>
-                  <option value="1">4</option>
-                  <option value="5">5</option>
-                </select>
-                <p>Logan May - CEO & Founder Invision</p>
-              </header>
-              <footer>
-                <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum croissant. “</p>
-              </footer>
-            </div>
-            <div class="ps-testimonial">
-              <div class="ps-testimonial__thumbnail"><img src="{{ asset('images/testimonial/3.jpg')}}" alt=""><i class="fa fa-quote-left"></i></div>
-              <header>
-                <select class="ps-rating">
-                  <option value="1">1</option>
-                  <option value="1">2</option>
-                  <option value="1">3</option>
-                  <option value="1">4</option>
-                  <option value="5">5</option>
-                </select>
-                <p>Logan May - CEO & Founder Invision</p>
-              </header>
-              <footer>
-                <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum croissant. “</p>
-              </footer>
-            </div>
-          </div>
-        </div>
-      </div>
+     
       @endsection

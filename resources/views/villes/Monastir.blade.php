@@ -136,7 +136,7 @@ color: white;
           <div class="ps-section--features-product ps-section masonry-root pt-100 pb-100">
             <div class="ps-container">
               <div class="ps-section__header mb-50">
-                  <h3 class="ps-section__title" data-mask="Ville">Ma Ville</h3>
+                  <h3 class="ps-section__title" data-mask="Monastir">Ma Ville</h3>
 
               </div>
 
@@ -197,10 +197,10 @@ color: white;
      bs.onchange = function(){
        console.log(bs.value);
        if(bs.value==0){
-        window.location.href = "./ville/";
+        window.location.href = "../5555";
 
        }else
-       window.location.href = "./ville/"+bs.value;
+       window.location.href = "./"+bs.value;
      };
 
           </script>

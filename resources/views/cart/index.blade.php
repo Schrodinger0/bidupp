@@ -26,11 +26,13 @@
       
         <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i>{{Cart::count()}}</i></span><i class="fa fa-trophy" aria-hidden="true"></i></a>
              
-            </div>
-            <div class="menu-toggle"><span></span></div>
-          </div>
-          </div>
+          
 
+      </div>
+
+
+      <div class="degl" style="position: absolute; margin-left:50%; margin-top:-4%; width:400px;">
+        @include('partials.auth')
       </div>
 
 
@@ -86,8 +88,8 @@
 
 
                 <tr>
-                    <td><a class="ps-product__preview" href="product-detail.html"><img class="mr-15" src="images/product/cart-preview/1.jpg" alt=""> {{ $product->model->title }} </a></td>
-                    <td>{{ $product->model->price }} .Dt</td>
+                    <td><a class="ps-product__preview" href="product-detail.html"><img class="mr-15" src="{{ asset('storage/'.$product->model->image)}}" style="height: 150px; width: 150px;" alt=""> {{ $product->model->title }} </a></td>
+                    <td>92 .Dt</td>
                   
                     <td>Bidder Price .Dt</td>
                     <td>
@@ -112,10 +114,10 @@
               </div>
             </div>
             <div class="ps-cart__total">
-              <h3>HT:  <span> {{ Cart::subtotal() }} .Dt</span></h3><hr>
-            <h3>TAX: 19%  <span>{{Cart::tax()}}  .Dt</span></h3><hr>
+              <h3>HT:  <span> 92.00 .Dt</span></h3><hr>
+            <h3>TAX: 19%  <span>17.48  .Dt</span></h3><hr>
               
-              <h3>prix total:  <span> {{ Cart::total() }} .Dt</span></h3><a class="ps-btn" href="{{ route('cart.invoice')}}">Process to checkout<i class="ps-icon-next"></i></a>
+              <h3>prix total:  <span> 109.48 .Dt</span></h3><a class="ps-btn" href="{{ route('cart.invoice')}}">Process to checkout<i class="ps-icon-next"></i></a>
 
             </div>
           </div>
