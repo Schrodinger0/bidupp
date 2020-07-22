@@ -37,7 +37,7 @@ Route::post('/auct-form','AuctioneerController@store')->name('auctioneer.save');
 
 /* Enchers Route */
 
-Route::get('/mesenchers', 'CartController@index')->name('cart.index');
+Route::get('/mesenchers', 'TheCartController@index')->name('cart.index');
 
 /*crud enchers*/
 
@@ -45,7 +45,6 @@ Route::get('/mesenchers', 'CartController@index')->name('cart.index');
 Route::group(['middleware' => ['auth']], function () {
 
     Route::post('/mesenchers/ajouter', 'CartController@store')->name('cart.store');
-    Route::delete('/mesenchers/{rowId}', 'CartController@destroy')->name('cart.destroy');
 
     /*Invoice */
     Route::get('/mesenchers/facture', 'CheckoutController@invoice')->name('cart.invoice');
@@ -53,6 +52,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/mesenchers/confirm', 'CheckoutController@store')->name('Checkout.store');
 
 });
+
+
+/* Cart Page */ 
+Route::post('/mesenchers/addItem', 'TheCartController@store')->name('thecart.store');
+Route::delete('/mesenchers/{rowId}', 'TheCartController@destroy')->name('cart.destroy');
+
 
 
 

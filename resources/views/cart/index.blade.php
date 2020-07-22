@@ -88,7 +88,7 @@
 
 
                 <tr>
-                    <td><a class="ps-product__preview" href="product-detail.html"><img class="mr-15" src="{{ asset('storage/'.$product->model->image)}}" style="height: 150px; width: 150px;" alt=""> {{ $product->model->title }} </a></td>
+                    <td><a class="ps-product__preview" href="#"><img class="mr-15" src="{{ asset('storage/'.$product->model->image)}}" style="height: 150px; width: 150px;" alt=""> {{ $product->model->title }} </a></td>
                     <td>92 .Dt</td>
                   
                     <td>Bidder Price .Dt</td>

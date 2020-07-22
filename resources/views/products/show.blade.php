@@ -136,7 +136,11 @@
                       @foreach ($cart as $pan)
 
                       @if($loop->last)
-                      {{$last_bidder = $pan->user_id}}
+                      <?php
+
+                      $last_bidder = $pan->user_id;
+
+                      ?>
                        <h4 class="ps-product__price" id='lastBidder'>  {{$pan->user_name}}</h4>
                         <h3 class="ps-product__price" id="bidderPrice">{{$pan->amount}} .Dt
                           @endif
@@ -158,11 +162,7 @@
                     <div class="ps-product__block ps-product__size">
                       <h4>DÉFINISSEZ VOTRE OFFRE</h4>
                     
-                      {{-- <div class="form-group">
-                        <input class="form-control" type="number"  name="mont" style="width: 180px"> 
-                        
-                      </div> --}}
-                      {{-- <h3 style="margin-left:200px;margin-top:-40px;">.DT</h3> --}}
+                 
                     </div>
                     <div class="ps-product__shopping">
 
@@ -215,11 +215,32 @@
                       
                        <div id="winnerMan"></div>
                     </form>
-
                     </div>
 
                       <div class="ps-product__actions"><a class="mr-10" href="whishlist.html"><i class="ps-icon-heart"></i></a><a href="compare.html"><i class="ps-icon-share"></i></a></div>
                     </div>
+
+
+
+
+                    <form action="{{ route('thecart.store') }}" method="POST">
+                      @csrf
+
+                      <input type="hidden" name="id" value="{{ $product->id }}">
+                      <input type="hidden" name="title" value="{{ $product->title }}">
+                      <input type="hidden" name="price" value="{{ $product->price }}">
+                      <input type="hidden" name="slug" value="{{ $product->slug }}">
+
+                      <div id="sub"> </div>
+                    <script>
+                      console.log('add to item');
+                    </script>
+
+                    
+                  </form>
+
+
+
                   </div>
                   <div class="clearfix"></div>
                   <div class="ps-product__content mt-50">
@@ -229,6 +250,8 @@
                       
                     </ul>
                   </div>
+
+              
                   <div class="tab-content mb-60">
                     <div class="tab-pane " role="tabpanel" id="tab_02">
                     <p>{!! $product->description !!}</p>
@@ -264,10 +287,16 @@
             </div>
           </div>
         
-          
+         <div class="vanish" style="color: white;"> 
           {{$is_winner = "false"}}
-          {{$current_session =  Auth::user()->id }}
-  
+
+                @if (Auth::check()) 
+                    {{$current_session =  Auth::user()->id }}
+                @else
+                {{$current_session =  00 }}
+                @endif
+       
+
           @foreach ($cart as $pan)
 
                   @if ( $current_session == $last_bidder ) 
@@ -280,7 +309,7 @@
 
                @endif
           @endforeach 
-     
+        </div>
           @endsection
 
           
@@ -295,7 +324,6 @@
                         var date = new Date();
                         div.className = 'new-rect';
                         div.innerHTML = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+" "+username;
-                          //div.style.backgroundColor = "black";
         
                     document.getElementsByTagName('body')[0].appendChild(div);
                   }
@@ -317,13 +345,13 @@
                 return hou+":"+min+":"+sec;
               }
               var timer;
-             // var lastBidder = document.getElementById("lastBidder");
-             // var lastPrice = document.getElementById("bidderPrice");
-              //lastBidder.innerHTML="888";
-           //   lastPrice.innerHTML = "888 .Dt";
+          
               if(milliseconds>0)
-              {timer = setInterval(()=>{
-                //console.log(milliseconds);
+              {
+                var timer2 = setInterval(()=>{
+                  window.location.reload();
+                },10000);
+                timer = setInterval(()=>{
                 milliseconds -= 1000;
                 var bidBtn = document.getElementById('bidb');
                 var winnerMan = document.getElementById('winnerMan');
@@ -343,14 +371,14 @@
                   bidBtn.onclick = null;
                   bidBtn.replaceWith(div);
                   clearInterval(timer);
+                  window.location.reload();
                   if({{ $is_winner }} == "true"){
                     var AddToCart = document.createElement('Button');
-                  div.className = "faza-rect";
-                  div.innerHTML = "win";
-                  winnerMan.replaceWith(AddToCart);
-
+                    div.className = "faza-rect";
+                    div.innerHTML = "win";
+                    winnerMan.replaceWith(AddToCart);
                   }
-                } 
+                }
               },1000);}
               else{
                   console.log('milliseconds is null');
@@ -359,13 +387,23 @@
                   div.className = "faza-rect";
                   div.innerHTML = "This Auction is done";
                   document.getElementById('aya').replaceWith(div);
-                
-                
+                  var winner = {{$is_winner}};
+                  if(winner){
+                      var submitDiv = document.getElementById('sub');
+                      var submitButton = document.createElement('button');
+                      submitButton.type = 'submit';
+                      submitButton.className = 'ps-btn mb-10';
+                      submitButton.innerHTML = 'Add this item to Cart<i class="ps-icon-next"></i>';
+                      submitButton.id = 'addToCartBtn';
+
+                      submitDiv.replaceWith(submitButton);
+                    }                
                 }
             }
             window.onload = function(){ showBlade();};
             console.log("show-blade");
             console.log("{{$is_winner}}");
-          
+            console.log("{{$current_session}}");
+
 
           </script>

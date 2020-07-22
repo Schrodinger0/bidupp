@@ -55,6 +55,10 @@
 */
 
 
+#addToCartBtn{
+  margin-top: 50px;
+}
+
 /* Add a black background color to the top navigation */
 .topnav {
   background-color: #00BAE6;

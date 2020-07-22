@@ -33,16 +33,16 @@
 
 
       <div class="topnav">
-            <a class="active" href="#">Acceuil <img src="{{ asset('images/home.png')}}" alt="" style="height:21px;width:21px;"></a>
-        <a  href="././tout">Tout Voir <img src="{{ asset('images/all.png')}}" alt="" style="height:21px;width:21px;"></a>
-        <a href="././activite">Activités <img src="{{ asset('images/activity.png')}}" alt="" style="height:21px;width:21px;"></a>
-        <a href="././beaute">Beauté <img src="{{ asset('images/beaute.png')}}" alt="" style="height:21px;width:21px;"></a>
-        <a href="././formation">Formation <img src="{{ asset('images/formation.png')}}" alt="" style="height:21px;width:21px;"></a>
-       <a href="././gastronomie">Gastronomie <img src="{{ asset('images/food.png')}}" alt="" style="height:21px;width:21px;"></a>
+            <a class="active" href="#">Home <img src="{{ asset('images/home.png')}}" alt="" style="height:21px;width:21px;"></a>
+        <a  href="././tout">See All <img src="{{ asset('images/all.png')}}" alt="" style="height:21px;width:21px;"></a>
+        <a href="././activite">Activities <img src="{{ asset('images/activity.png')}}" alt="" style="height:21px;width:21px;"></a>
+        <a href="././beaute">Beauty <img src="{{ asset('images/beaute.png')}}" alt="" style="height:21px;width:21px;"></a>
+        <a href="././formation">Courses <img src="{{ asset('images/formation.png')}}" alt="" style="height:21px;width:21px;"></a>
+       <a href="././gastronomie">Gastronomy <img src="{{ asset('images/food.png')}}" alt="" style="height:21px;width:21px;"></a>
        <a href="././hotel">Hotels <img src="{{ asset('images/hotel.png')}}" alt="" style="height:21px;width:21px;"></a>
        <a href="././sport">Sport <img src="{{ asset('images/sport.png')}}" alt="" style="height:21px;width:21px;"></a>
         <a href="././shopping">Shopping <img src="{{ asset('images/shopping.png')}}" alt="" style="height:21px;width:21px;"></a>
-        <a href="././ville">Ma ville <img src="{{ asset('images/map.png')}}" alt="" style="height:21px;width:21px;"></a>
+        <a href="././ville">My City <img src="{{ asset('images/map.png')}}" alt="" style="height:21px;width:21px;"></a>
     
         
 
@@ -153,8 +153,8 @@
         </div>
       </div>
       <div class="ps-section--offer">
-        <div class="ps-column"><a class="ps-offer" href="product-listing.html"><img src="{{ asset('images/banner/180.jpg')}}" alt=""></a></div>
-        <div class="ps-column"><a class="ps-offer" href="product-listing.html"><img src="{{ asset('images/banner/157.jpg')}}" alt=""></a></div>
+        <div class="ps-column"><a class="ps-offer" href="././formation" target="_blank"><img src="{{ asset('images/banner/180.jpg')}}" alt=""></a></div>
+        <div class="ps-column"><a class="ps-offer" href="././gastronomie" target="_blank"><img src="{{ asset('images/banner/157.jpg')}}" alt=""></a></div>
       </div>
     
       <div class="ps-section ps-section--top-sales ps-owl-root pt-80 pb-80">

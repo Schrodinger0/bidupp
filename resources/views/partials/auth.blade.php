@@ -12,9 +12,9 @@
                 </li>
             @endif
         @else
-                    <li id="switch_auct" style="margin-left: -40%"><a href="{{route('Auctioneer')}}" > <img src="{{ asset('images/ami.png') }}" style="height: 20px; width:20px; margin-right: 10px;" alt=""> <br> <p style="color: black; margin-left:-30%;"> Devient Vendeur ? </p></a> 
+                    <li id="switch_auct" style="margin-left: -40%"><a href="{{route('Auctioneer')}}" > <img src="{{ asset('images/ami.png') }}" style="height: 20px; width:20px; margin-right: 10px;" alt=""> <br> <p style="color: black; margin-left:-30%;"> Become Seller ? </p></a> 
                 </li>
-<li>    <a href="#" > <img src="{{ asset('images/favoris.png') }}" style="height: 20px; width:20px; margin-right: 10px;" alt=""> <br> <p style="color: black; margin-left:-30%;"> Mes Favoris </p></a> 
+<li>    <a href="#" > <img src="{{ asset('images/favoris.png') }}" style="height: 20px; width:20px; margin-right: 10px;" alt=""> <br> <p style="color: black; margin-left:-30%;"> Wishlist </p></a> 
 </li>
     
     
@@ -26,7 +26,7 @@
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="padding-left: 10px;">
                     <a class="dropdown-item" style="width: 50px; color:black;" href="{{ route('home') }}">
-                        <h5>Mon Profile</h5>
+                        <h5>My Profile</h5>
                         <img src="{{ asset('images/profile.png') }}" alt="profile" style="height: 30px; width:30px; position:absolute; margin-left:100px; margin-top:-25px;">
                     </a>
                         <hr>
