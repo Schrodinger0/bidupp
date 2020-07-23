@@ -64,16 +64,16 @@ button:hover, a:hover {
       </nav>
 
       <div class="topnav">
-              <a  href="././">Acceuil <img src="{{ asset('images/home.png')}}" alt="" style="height:21px;width:21px;"></a>
-              <a href="././tout">Tout Voir <img src="{{ asset('images/all.png')}}" alt="" style="height:21px;width:21px;"></a>
-              <a href="././activite">Activités <img src="{{ asset('images/activity.png')}}" alt="" style="height:21px;width:21px;"></a>
-              <a href="././beaute">Beauté <img src="{{ asset('images/beaute.png')}}" alt="" style="height:21px;width:21px;"></a>
-              <a href="././formation">Formation <img src="{{ asset('images/formation.png')}}" alt="" style="height:21px;width:21px;"></a>
-              <a href="././gastronomie">Gastronomie <img src="{{ asset('images/food.png')}}" alt="" style="height:21px;width:21px;"></a>
+              <a  href="././">Home <img src="{{ asset('images/home.png')}}" alt="" style="height:21px;width:21px;"></a>
+              <a href="././tout">See All <img src="{{ asset('images/all.png')}}" alt="" style="height:21px;width:21px;"></a>
+              <a href="././activite">Activities <img src="{{ asset('images/activity.png')}}" alt="" style="height:21px;width:21px;"></a>
+              <a href="././beaute">Beauty <img src="{{ asset('images/beaute.png')}}" alt="" style="height:21px;width:21px;"></a>
+              <a href="././formation">Courses <img src="{{ asset('images/formation.png')}}" alt="" style="height:21px;width:21px;"></a>
+              <a href="././gastronomie">Gastronomy <img src="{{ asset('images/food.png')}}" alt="" style="height:21px;width:21px;"></a>
               <a href="././hotel">Hotels <img src="{{ asset('images/hotel.png')}}" alt="" style="height:21px;width:21px;"></a>
               <a href="././sport">Sport <img src="{{ asset('images/sport.png')}}" alt="" style="height:21px;width:21px;"></a>
               <a href="././shopping">Shopping <img src="{{ asset('images/shopping.png')}}" alt="" style="height:21px;width:21px;"></a>
-              <a href="././ville">Ma ville <img src="{{ asset('images/map.png')}}" alt="" style="height:21px;width:21px;"></a>
+              <a href="././ville">My City <img src="{{ asset('images/map.png')}}" alt="" style="height:21px;width:21px;"></a>
 
         
 
@@ -140,7 +140,9 @@ button:hover, a:hover {
     <label for="exampleInputPassword2">Confirm Password</label>
     <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
   </div>
-
+  <div class="form-group">
+    <input type="Submit" class="ps-btn" value="submit" style="margin-bottom: 20px;">
+  </div>
 </form>
 
 </div>

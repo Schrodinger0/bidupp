@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Auctioneer extends Migration
+class CreateAuctioneers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Auctioneer extends Migration
      */
     public function up()
     {
-        Schema::create('newsletter', function (Blueprint $table) {
+        Schema::create('auctioneers', function (Blueprint $table) {
             $table->id();
             $table->string('Name');
             $table->string('email');
@@ -24,11 +24,8 @@ class Auctioneer extends Migration
             $table->string('AdrFis');
             $table->string('AdrMat');
             $table->text('description');
-
             $table->timestamps();
-        });  
-    
-
+        });
     }
 
     /**
@@ -38,6 +35,6 @@ class Auctioneer extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('auctioneers');
     }
 }

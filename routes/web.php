@@ -31,7 +31,7 @@ Route::get('/search', 'ProductController@search')->name('products.search');
 
  /*Auctioneer search route*/
 Route::get('/auctioneer', 'AuctioneerController@index')->name('Auctioneer');
-Route::post('/auct-form','AuctioneerController@store')->name('auctioneer.save');
+Route::post('/submitauct','AuctioneerController@save')->name('auctioneer.save');
 
 
 
@@ -86,7 +86,7 @@ Route::post('/newsletter','NewsletterController@storeMail')->name('newsletter.sa
 
 /*try update*/ 
 Route::get('/update', function(){
-    return View('update'); // Your Blade template name
+    return View('update'); // Your Blade template name 
 });
 
 
