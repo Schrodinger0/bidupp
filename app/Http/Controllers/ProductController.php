@@ -88,7 +88,7 @@ class ProductController extends Controller
          return view('products.show',['product'=> $product,'cart'=>$cart]);
     }
   
-
+ 
 
 
     public function search()

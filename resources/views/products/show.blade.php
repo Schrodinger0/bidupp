@@ -37,16 +37,16 @@
 
 
       <div class="topnav">
-            <a  href=".././">Acceuil <img src="{{ asset('images/home.png')}}" alt="" style="height:21px;width:21px;"></a>
-            <a  href=".././tout">Tout Voir <img src="{{ asset('images/all.png')}}" alt="" style="height:21px;width:21px;"></a>
-            <a  href=".././activite">Activités <img src="{{ asset('images/activity.png')}}" alt="" style="height:21px;width:21px;"></a>
-            <a  href=".././beaute">Beauté <img src="{{ asset('images/beaute.png')}}" alt="" style="height:21px;width:21px;"></a>
-            <a  href=".././formation">Formation <img src="{{ asset('images/formation.png')}}" alt="" style="height:21px;width:21px;"></a>
-           <a  href=".././gastronomie">Gastronomie <img src="{{ asset('images/food.png')}}" alt="" style="height:21px;width:21px;"></a>
+            <a  href=".././">Home <img src="{{ asset('images/home.png')}}" alt="" style="height:21px;width:21px;"></a>
+            <a  href=".././tout">See All <img src="{{ asset('images/all.png')}}" alt="" style="height:21px;width:21px;"></a>
+            <a  href=".././activite">Activities <img src="{{ asset('images/activity.png')}}" alt="" style="height:21px;width:21px;"></a>
+            <a  href=".././beaute">Beauty <img src="{{ asset('images/beaute.png')}}" alt="" style="height:21px;width:21px;"></a>
+            <a  href=".././formation">Courses <img src="{{ asset('images/formation.png')}}" alt="" style="height:21px;width:21px;"></a>
+           <a  href=".././gastronomie">Gastronomy <img src="{{ asset('images/food.png')}}" alt="" style="height:21px;width:21px;"></a>
            <a href=".././hotel">Hotels <img src="{{ asset('images/hotel.png')}}" alt="" style="height:21px;width:21px;"></a>
            <a  href=".././sport">Sport <img src="{{ asset('images/sport.png')}}" alt="" style="height:21px;width:21px;"></a>
             <a href=".././shopping">Shopping <img src="{{ asset('images/shopping.png')}}" alt="" style="height:21px;width:21px;"></a>
-            <a href=".././ville">Ma ville <img src="{{ asset('images/map.png')}}" alt="" style="height:21px;width:21px;"></a>
+            <a href=".././ville">My City <img src="{{ asset('images/map.png')}}" alt="" style="height:21px;width:21px;"></a>
     
 
       </div>
@@ -143,6 +143,13 @@
                       ?>
                        <h4 class="ps-product__price" id='lastBidder'>  {{$pan->user_name}}</h4>
                         <h3 class="ps-product__price" id="bidderPrice">{{$pan->amount}} .Dt
+
+
+                          @php
+                          $BidderPrice = $pan->amount
+                          @endphp
+                        
+
                           @endif
                       @endforeach 
                       <del>{{ $product->price }} .DT</del></h3>
@@ -230,6 +237,9 @@
                       <input type="hidden" name="title" value="{{ $product->title }}">
                       <input type="hidden" name="price" value="{{ $product->price }}">
                       <input type="hidden" name="slug" value="{{ $product->slug }}">
+                      <input type="hidden" name="bidderprice" value="{{$BidderPrice}}">
+                      
+                     
 
                       <div id="sub"> </div>
                     <script>

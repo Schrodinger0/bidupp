@@ -84,15 +84,15 @@
                               <form action="product-listing.html" method="post">
                                 <div class="form-group">
                                   <P>Name<span>*</span></P>  
-                                <input class="form-control" type="text">
+                                <input class="form-control" name="name" type="text">
                                 </div>
                                 <div class="form-group">
                                   <P>Email<span>*</span></P>
-                                  <input class="form-control" type="email">
+                                  <input class="form-control" name="email" type="email">
                                 </div>
                                 <div class="form-group">
                                   <P>Your message<span>*</span></P>
-                                  <textarea class="form-control" rows="4"></textarea>
+                                  <textarea class="form-control" name="message" rows="4"></textarea>
                                 </div>
                                 <div class="form-group text-center">
                                   <button class="ps-btn">Send Message<i class="fa fa-angle-right"></i></button>
