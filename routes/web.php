@@ -13,9 +13,10 @@ use App\Ville;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Route::get('/', 'Controller@welcome')->name('welcome');
+
+
+Route::get('/contactform', 'ContactController@SendMail')->name('Contact.send');
 
 Route::get('/tout', 'ProductController@index')->name('products.index');
 Route::get('/activite', 'ProductController@activite')->name('products.activite');

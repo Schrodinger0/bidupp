@@ -32,7 +32,8 @@
 
 
 
-      <div class="topnav">
+      <div class="topnav" id="myTopnav">
+        <a href="javascript:void(0);" class="home" onclick="myFunction()">Menu</a>
             <a class="active" href="#">Home <img src="{{ asset('images/home.png')}}" alt="" style="height:21px;width:21px;"></a>
         <a  href="././tout">See All <img src="{{ asset('images/all.png')}}" alt="" style="height:21px;width:21px;"></a>
         <a href="././activite">Activities <img src="{{ asset('images/activity.png')}}" alt="" style="height:21px;width:21px;"></a>
@@ -43,14 +44,22 @@
        <a href="././sport">Sport <img src="{{ asset('images/sport.png')}}" alt="" style="height:21px;width:21px;"></a>
         <a href="././shopping">Shopping <img src="{{ asset('images/shopping.png')}}" alt="" style="height:21px;width:21px;"></a>
         <a href="././ville">My City <img src="{{ asset('images/map.png')}}" alt="" style="height:21px;width:21px;"></a>
+        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
     
         
-
       </div>
       
-
-
-     
+            <script>
+                      /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+              function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                  x.className += " responsive";
+                } else {
+                  x.className = "topnav";
+                }
+              }
+            </script>
     </header>
 
 

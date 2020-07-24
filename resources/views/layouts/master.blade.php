@@ -81,7 +81,7 @@
                           <div class="ps-home-contact">
   
 
-                              <form action="product-listing.html" method="post">
+                              <form action="{{ route('Contact.send') }}" method="get">
                                 <div class="form-group">
                                   <P>Name<span>*</span></P>  
                                 <input class="form-control" name="name" type="text">
