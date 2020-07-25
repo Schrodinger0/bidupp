@@ -105,7 +105,8 @@
                     <td><a class="ps-product__preview" href="#"><img class="mr-15" src="{{ asset('storage/'.$product->model->image)}}" style="height: 150px; width: 150px;" alt=""> {{ $product->model->title }} </a></td>
                     <td>{{ $product->model->price }} .Dt</td>
                   
-                    <td>zz .Dt</td>
+                    
+                    <td> {{$pricebid}} .Dt</td>
                     <td>
                       <form action="{{ route('cart.destroy', $product->rowId) }}" method="POST">
                         @csrf
@@ -131,7 +132,7 @@
               <h3>HT:  <span> 92.00 .Dt</span></h3><hr>
             <h3>TAX: 19%  <span>17.48  .Dt</span></h3><hr>
               
-              <h3>prix total:  <span> 109.48 .Dt</span></h3><a class="ps-btn" href="{{ route('cart.invoice')}}">Process to checkout<i class="ps-icon-next"></i></a>
+              <h3>prix total:  <span> 109.48 .Dt</span></h3><a class="ps-btn" href="{{ route('cart.invoice')}}">Proceed to checkout<i class="ps-icon-next"></i></a>
 
             </div>
           </div>

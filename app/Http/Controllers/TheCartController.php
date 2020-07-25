@@ -38,12 +38,14 @@ class TheCartController extends Controller
      */
     public function store(Request $request)
     {
-       print_r($request->input());
+      // print_r($request->input());
         /*change it to the condition of higher price + timer end */ 
-        Cart::add($request->id, $request->title, 1, $request->price)
-        ->associate('App\Product');
-        
-       return redirect()->route('cart.index',$request->slug)->with('success', 'Congratulations! You Won this Auction');
+      Cart::add($request->id, $request->title, 1, $request->price)
+      ->associate('App\Product');
+
+      return redirect()->route('cart.index',$request->slug)->with('success', 'Congratulations! You Won this Auction')
+                                                            ->withPricebid($request->lastBidderprice);
+
 
     } 
 
