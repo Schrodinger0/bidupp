@@ -151,11 +151,12 @@ color: white;
 
               </div>
 
+                  
                   <form name="villes" method="get">
 
                   <div class="box">
                       <select  id="bovilles" >
-                        <OPTION value="0">Toute la Tunisie</OPTION>
+                        <OPTION value="0"> Choose Your City</OPTION>
 
                           @foreach ($villes as $ville)
                               @if(isset($ville->id))
@@ -208,10 +209,10 @@ color: white;
      bs.onchange = function(){
        console.log(bs.value);
        if(bs.value==0){
-        window.location.href = "./ville/";
+        window.location.href = "{{ route('products.ville') }}";
 
        }else
-       window.location.href = "./ville/"+bs.value;
+       window.location.href = "{{ route('products.ville') }}/"+bs.value;
      };
 
           </script>

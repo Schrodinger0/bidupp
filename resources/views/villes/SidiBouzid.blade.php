@@ -151,69 +151,70 @@ color: white;
 
               </div>
 
-                  <form name="villes" method="get">
+             
+              <form name="villes" method="get">
 
-                  <div class="box">
-                      <select  id="bovilles" >
-                        <OPTION value="0">Toute la Tunisie</OPTION>
+                <div class="box">
+                    <select  id="bovilles" >
+                      <OPTION value="0"> Choose Your City</OPTION>
 
-                          @foreach ($villes as $ville)
-                              @if(isset($ville->id))
-                                  <OPTION value="{{ $ville->id }}">{{ $ville->name }}</OPTION>
-                              @endif
-                          @endforeach
-                      </select>
-                    </div>
+                        @foreach ($villes as $ville)
+                            @if(isset($ville->id))
+                                <OPTION value="{{ $ville->id }}">{{ $ville->name }}</OPTION>
+                            @endif
+                        @endforeach
+                    </select>
+                  </div>
 
-                  </form>
-
-
-              <div class="ps-section__content pb-50">
-                <div class="masonry-wrapper" data-col-md="4" data-col-sm="2" data-col-xs="1" data-gap="30" data-radio="100%">
-                  <div class="ps-masonry">
-                    <div class="grid-sizer"></div>
+                </form>
 
 
+            <div class="ps-section__content pb-50">
+              <div class="masonry-wrapper" data-col-md="4" data-col-sm="2" data-col-xs="1" data-gap="30" data-radio="100%">
+                <div class="ps-masonry">
+                  <div class="grid-sizer"></div>
 
-                    @foreach ($products as $product)
-                    <div class="grid-item men">
-                          <div class="grid-item__content-wrapper">
-                            <div class="ps-shoe mb-30">
-                              <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img src="{{ asset('storage/'.$product->image)}}" alt="" style="height: 200px; width : 500px; "><a class="ps-shoe__overlay" href="{{ route('products.show', $product->slug) }}"></a>
+
+
+                  @foreach ($products as $product)
+                  <div class="grid-item men">
+                        <div class="grid-item__content-wrapper">
+                          <div class="ps-shoe mb-30">
+                            <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img src="{{ asset('storage/'.$product->image)}}" alt="" style="height: 200px; width : 500px; "><a class="ps-shoe__overlay" href="{{ route('products.show', $product->slug) }}"></a>
+                            </div>
+                            <div class="ps-shoe__content">
+                              <div class="ps-shoe__variants">
+                                <div class="normal">
+                                  <p>{!!  $product->subtitle  !!}</p>  
+                                </div>
+                                <p>{{ $product->created_at->format('d/m/y') }}</p>
                               </div>
-                              <div class="ps-shoe__content">
-                                <div class="ps-shoe__variants">
-                                  <div class="normal">
-                                    <p>{!!  $product->subtitle  !!}</p>  
-                                  </div>
-                                  <p>{{ $product->created_at->format('d/m/y') }}</p>
-                                </div>
-                                <div class="ps-shoe__detail"><a class="ps-shoe__name" href="#">{{ $product->title }}</a>
-                                  <p class="ps-shoe__categories"></p><span class="ps-shoe__price"> <del>{{ $product->price }}</del>  .Dt</span>
-                                </div>
+                              <div class="ps-shoe__detail"><a class="ps-shoe__name" href="#">{{ $product->title }}</a>
+                                <p class="ps-shoe__categories"></p><span class="ps-shoe__price"> <del>{{ $product->price }}</del>  .Dt</span>
                               </div>
                             </div>
                           </div>
                         </div>
-                    @endforeach
+                      </div>
+                  @endforeach
 
-                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <script>
-     
-     var bs = document.getElementById("bovilles");
-     bs.onchange = function(){
-       console.log(bs.value);
-       if(bs.value==0){
-        window.location.href = "./ville/";
+        </div>
+        <script>
+   
+   var bs = document.getElementById("bovilles");
+   bs.onchange = function(){
+     console.log(bs.value);
+     if(bs.value==0){
+      window.location.href = "{{ route('products.ville') }}";
 
-       }else
-       window.location.href = "./ville/"+bs.value;
-     };
+     }else
+     window.location.href = "{{ route('products.ville') }}/"+bs.value;
+   };
 
-          </script>
+        </script>
 
-          @endsection
+        @endsection

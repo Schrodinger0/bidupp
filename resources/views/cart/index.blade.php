@@ -105,8 +105,10 @@
                     <td><a class="ps-product__preview" href="#"><img class="mr-15" src="{{ asset('storage/'.$product->model->image)}}" style="height: 150px; width: 150px;" alt=""> {{ $product->model->title }} </a></td>
                     <td>{{ $product->model->price }} .Dt</td>
                   
-                    
-                    <td> {{$pricebid}} .Dt</td>
+                    @foreach ($$lastBidder as $item)
+                    <td> {{$item}} .Dt</td>
+
+                    @endforeach
                     <td>
                       <form action="{{ route('cart.destroy', $product->rowId) }}" method="POST">
                         @csrf

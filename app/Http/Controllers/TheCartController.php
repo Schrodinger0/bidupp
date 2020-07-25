@@ -43,8 +43,11 @@ class TheCartController extends Controller
       Cart::add($request->id, $request->title, 1, $request->price)
       ->associate('App\Product');
 
+      $lastBidder = $request->lastBidderprice;
+
       return redirect()->route('cart.index',$request->slug)->with('success', 'Congratulations! You Won this Auction')
-                                                            ->withPricebid($request->lastBidderprice);
+                                                            ->with('lastBidder', $lastBidder);
+                                                            
 
 
     } 

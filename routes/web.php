@@ -91,10 +91,137 @@ Route::get('/update', function(){
 });
 
 
-/* ville */
 
+
+
+
+
+
+
+
+
+
+
+
+
+/* ville */
+Route::get('/ville/1', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Ariana")->take(12)->get();
+    return View('villes.Ariana')->with(compact('villes', 'products'));
+});
+Route::get('/ville/2', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Jendouba")->take(12)->get();
+    return View('villes.Jendouba')->with(compact('villes', 'products'));
+});
+Route::get('/ville/3', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Gafsa")->take(12)->get();
+    return View('villes.Gafsa')->with(compact('villes', 'products'));
+});
+Route::get('/ville/4', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Gabès")->take(12)->get();
+    return View('villes.Gabes')->with(compact('villes', 'products'));
+});
+Route::get('/ville/5', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Bizerte")->take(12)->get();
+    return View('villes.Bizerte')->with(compact('villes', 'products'));
+});
+Route::get('/ville/6', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Ben Arous")->take(12)->get();
+    return View('villes.BenArous')->with(compact('villes', 'products'));
+});
+Route::get('/ville/7', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Béja")->take(12)->get();
+    return View('villes.Beja')->with(compact('villes', 'products'));
+});
+Route::get('/ville/8', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Kairouan")->take(12)->get();
+    return View('villes.Kairouen')->with(compact('villes', 'products'));
+});
+Route::get('/ville/9', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Kasserine")->take(12)->get();
+    return View('villes.Kasserine')->with(compact('villes', 'products'));
+});
+Route::get('/ville/10', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Kébili")->take(12)->get();
+    return View('villes.Kebili')->with(compact('villes', 'products'));
+});
+Route::get('/ville/11', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Le Kef")->take(12)->get();
+    return View('villes.TheKef')->with(compact('villes', 'products'));
+});
+Route::get('/ville/12', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Mahdia")->take(12)->get();
+    return View('villes.Mahdia')->with(compact('villes', 'products'));
+});
+Route::get('/ville/13', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "La Manouba")->take(12)->get();
+    return View('villes.TheManouba')->with(compact('villes', 'products'));
+});
+Route::get('/ville/14', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Médenine")->take(12)->get();
+    return View('villes.Medenine')->with(compact('villes', 'products'));
+});
 Route::get('/ville/15', function(){
     $villes = Ville::all();
-    $products = Product::where('ville', "monastir")->take(12)->get();
+    $products = Product::where('ville', "Monastir")->take(12)->get();
     return View('villes.Monastir')->with(compact('villes', 'products'));
+});
+Route::get('/ville/16', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Nabeul")->take(12)->get();
+    return View('villes.Nabel')->with(compact('villes', 'products'));
+});
+Route::get('/ville/17', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Sfax")->take(12)->get();
+    return View('villes.Sfax')->with(compact('villes', 'products'));
+});
+Route::get('/ville/18', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Sidi Bouzid")->take(12)->get();
+    return View('villes.SidiBouzid')->with(compact('villes', 'products'));
+});
+Route::get('/ville/19', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Siliana")->take(12)->get();
+    return View('villes.Siliana')->with(compact('villes', 'products'));
+});
+Route::get('/ville/20', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Sousse")->take(12)->get();
+    return View('villes.Sousse')->with(compact('villes', 'products'));
+});
+Route::get('/ville/21', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Tataouine")->take(12)->get();
+    return View('villes.Tataouine')->with(compact('villes', 'products'));
+});
+Route::get('/ville/22', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Tozeur")->take(12)->get();
+    return View('villes.Tozeur')->with(compact('villes', 'products'));
+});
+Route::get('/ville/23', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Tunis")->take(12)->get();
+    return View('villes.Tunis')->with(compact('villes', 'products'));
+});
+Route::get('/ville/24', function(){
+    $villes = Ville::all();
+    $products = Product::where('ville', "Zaghouan")->take(12)->get();
+    return View('villes.Zaghouan')->with(compact('villes', 'products'));
 });
