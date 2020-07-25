@@ -93,6 +93,9 @@
 }
 
 /*this is my wrok*/
+.carousel-height{
+  height: 500px;
+}
 .topnav .icon {
   display: none;
 }
@@ -111,6 +114,9 @@
   .topnav a.home{
     /*float: left;*/
     display: block;
+  }
+  .carousel-height{
+    height: auto;
   }
 }
 

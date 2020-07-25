@@ -180,11 +180,14 @@
                 <div class="ps-product__shopping">
 
 
+
                   <form action="{{ route('cart.store') }}" method="POST">
                     @csrf
-                    
+
                     <div class="form-group">
-                      <input class="form-control" type="number"  name="mont" value="1" style="width: 180px"> 
+                      
+                      <input  id="bidForm" class="form-control" type="number"  name="mont" min="1" value="1" style="width: 180px"> 
+
                       <h3 style="margin-left:200px;margin-top:-40px;">.DT</h3>
                     </div>
                     <input type="hidden" name="id" value="{{ $product->id }}">
@@ -230,7 +233,7 @@
                 </form>
                 </div>
 
-                  <div class="ps-product__actions"><a class="mr-10" href="whishlist.html"><i class="ps-icon-heart"></i></a><a href="compare.html"><i class="ps-icon-share"></i></a></div>
+                 
                 </div>
 
 
@@ -243,7 +246,14 @@
                   <input type="hidden" name="title" value="{{ $product->title }}">
                   <input type="hidden" name="price" value="{{ $product->price }}">
                   <input type="hidden" name="slug" value="{{ $product->slug }}">
+                  @foreach ($cart as $pan)
 
+                  @if($loop->last)
+                  <input type="hidden" name="LastBidderPrice" value="{{$pan->amount}}">
+
+       
+                      @endif
+                  @endforeach 
                   <div id="sub"> </div>
                 <script>
                   console.log('add to item');
@@ -365,6 +375,7 @@
               //window.location.reload();
               $( "#prod-info" ).load(window.location.href + " #prod-info" );
               $( "#tab_01" ).load(window.location.href + " #tab_01" );
+             $( "#bidForm" ).load(window.location.href + " #bidForm" );
             },5000);
             timer = setInterval(()=>{
             milliseconds -= 1000;

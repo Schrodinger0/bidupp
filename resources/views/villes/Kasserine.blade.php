@@ -147,7 +147,7 @@ color: white;
           <div class="ps-section--features-product ps-section masonry-root pt-100 pb-100">
             <div class="ps-container">
               <div class="ps-section__header mb-50">
-                  <h3 class="ps-section__title" data-mask="City">My City</h3>
+                  <h3 class="ps-section__title" data-mask="City">Kasserine</h3>
 
               </div>
 

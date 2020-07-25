@@ -59,7 +59,7 @@ class CartController extends Controller
         $cart->slug=$request->input('slug');
         $cart->bid_time=Carbon::now();
         //$amount=$request->input('price')+$request->input('mont');  
-        $cart->amount =$amount+$maxValue; 
+        $cart->amount =$amount; 
         $cart->save();
 
 
