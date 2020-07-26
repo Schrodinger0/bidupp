@@ -322,10 +322,10 @@
                             </tr>
                         </tfoot>
                     </table>
-                    <div class="thanks">Merci!</div>
+                    <div class="thanks">Thank You!</div>
                     <div class="notices">
                         <div>Avis:</div>
-                        <div class="notice">Nous utilisons actuellement l'application mobile "Paymee" pour recevoir les paiements que vous pouvez télécharger <a href="https://play.google.com/store/apps/details?id=com.am.paymee">ici</a> ou vous pouvez scanner le Qr Code :</div>
+                        <div class="notice">We are currently using the mobile application "Paymee" to receive payments that you can download. <a href="https://play.google.com/store/apps/details?id=com.am.paymee">Here</a> or you can scan the Qr Code:</div>
 
                     <img src="{{asset('images/paymee.png')}}" alt="" style="margin-left: 15%;">
 
@@ -347,7 +347,7 @@
                      text-decoration: none;
                      display: inline-block;
                      font-size: 16px;
-                     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">Confirme Commande</button>
+                     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">Confirm Order</button>
                     </form>
 
               
@@ -355,12 +355,14 @@
                     </div>
                 </main>
                 <footer>
-                    La facture a été créée sur un ordinateur et est valide sans la signature et le sceau.
+                    <button onclick="myFunction()">Click me</button>
+                    The invoice was created on a computer and is valid without the signature and seal.
                 </footer>
             </div>
             <div></div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
 
 <script>
 
@@ -373,6 +375,13 @@ $('#printInvoice').click(function(){
             }
         });
 console.log("{{ $BillNumber}}")
+
+
+function myFunction() {
+    var doc = new jsPDF()
+
+doc.text('Hello world!', 10, 10)
+doc.save('a4.pdf')}
 </script>
 
 

@@ -63,7 +63,7 @@
 .topnav {
   background-color: #00BAE6;
   overflow: hidden;
-  padding-left: 5%
+  padding-left: 5%;
 }
 
 /* Style the links inside the navigation bar */
@@ -93,6 +93,125 @@
 }
 
 /*this is my wrok*/
+
+/*Might delete later, Dropdown*/
+.drop2btn {
+  background-color: #000000;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 40px;
+  width: 40px;
+  height: 40px;
+  padding-top: 9px;
+}
+
+.drop2down {
+  position: relative;
+  display: inline-block;
+}
+
+.drop2down-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 260px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  right: 0px;
+  padding: 10px;
+}
+
+.drop2down-content a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.drop2down-content a:hover {background-color: #f1f1f1}
+
+.drop2down:hover .drop2down-content {
+  display: block;
+}
+
+.drop2down:hover .drop2btn {
+  background-color: gold;
+}
+/*Dropdown ends here*/
+/*Menuitem starts here*/
+.nav-item-2{
+  padding: 5px;
+}
+.nav-item-Button {
+	background-color: rgb(30, 151, 221);
+	border: none;
+	color: white;
+	padding: 10px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+border-radius: 12px;
+
+}
+
+.nav-item-Button:hover {
+	color: white;
+
+}
+
+.nav-item-Button2 {
+	background-color: #FFDC19;
+	border: none;
+	color: white;
+	padding: 10px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+border-radius: 12px;
+
+}
+
+.nav-item-Button2:hover {
+	color: white;
+
+}
+/*Menuitem ends here*/
+/*Searchbar starts here*/
+.searchBar{
+  float: left;
+  margin-top: 20px;
+  width:calc(25% - 100px);
+  margin-left: 75%;
+}
+@media screen and (max-width: 1199px) {
+  .searchBar{
+    float: left;
+    margin-top: 20px;
+    width:calc(50% - 100px);
+    margin-left: 50%;
+  }
+}
+@media screen and (max-width: 794px) {
+  .searchBar{
+    float: left;
+    margin-top: 20px;
+    width:calc(75% - 100px);
+    margin-left: 25%;
+  }
+}
+@media screen and (max-width: 505px) {
+  .searchBar{
+    float: left;
+    margin-top: 20px;
+    width:calc(100% - 100px);
+    margin-left: 0%;
+  }
+}
+/*Searchbar ends here*/
 .carousel-height{
   height: 500px;
 }
@@ -102,7 +221,7 @@
 .topnav .home{
   display: none;
 }
-@media screen and (max-width: 1125px) {
+@media screen and (max-width: 1500px) {
   .topnav a:not(:first-child), .dropdown .dropbtn {
     display: none;
   }
@@ -120,7 +239,7 @@
   }
 }
 
-@media screen and (max-width: 1125px) {
+@media screen and (max-width: 1500px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
@@ -4402,15 +4521,16 @@ textarea.form-control {
 
 .navigation {
   position: relative;
+  /*height: 150px;*/
   color: #fff; }
   .navigation .navigation__column {
     float: left; }
     .navigation .navigation__column.left {
-      width: 25%; }
+      width: 70px; }
     .navigation .navigation__column.center {
       width: 50%; }
     .navigation .navigation__column.right {
-      width: 25%; }
+      width: calc(100% - 70px); }
   .navigation .center {
     text-align: center; }
   .navigation .navigation__column.right {
@@ -4526,8 +4646,8 @@ textarea.form-control {
       margin-bottom: 15px; } }
 
 .ps-cart {
-  line-height: 90px;
   position: relative;
+  padding-top: 10px;
   display: inline-block; }
   .ps-cart__toggle {
     position: relative;

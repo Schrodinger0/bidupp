@@ -1,30 +1,29 @@
   <style>#dashya7ajneedsaclass{color:white;}</style>
   <!-- Right Side Of Navbar -->
-    <ul class="navbar-nav ml-auto">
         <!-- Authentication Links -->
         @guest
-            <li class="nav-item">
-                <a class="deglaButton" href="{{ route('login') }}">{{ __('Login') }}</a>
-            </li>
+            <div class="nav-item-2">
+                <a class="nav-item-Button" href="{{ route('login') }}">{{ __('Login') }}</a>
+            </div>
             @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="deglaButton2" href="{{ route('register') }}">{{ __('Register') }}</a>
-                </li>
+                <div class="nav-item-2">
+                    <a class="nav-item-Button2" href="{{ route('register') }}">{{ __('Register') }}</a>
+                </div>
             @endif
         @else
-                    <li id="switch_auct" style="margin-left: -40%"><a href="{{route('Auctioneer')}}" > <img src="{{ asset('images/ami.png') }}" style="height: 20px; width:20px; margin-right: 10px;" alt=""> <br> <p style="color: black; margin-left:-30%;"> Become Seller ? </p></a> 
-                </li>
-<li>    <a href="#" > <img src="{{ asset('images/favoris.png') }}" style="height: 20px; width:20px; margin-right: 10px;" alt=""> <br> <p style="color: black; margin-left:-30%;"> Wishlist </p></a> 
-</li>
+                    <div id="switch_auct" ><a href="{{route('Auctioneer')}}" style="display: -webkit-box"> <img src="{{ asset('images/ami.png') }}" style="height: 20px; width:20px; margin-right: 5px;" alt=""><p style="color: black;"> Become An Auctioneer ? </p></a> 
+                </div>
+<div>    <a href="#" style="display: -webkit-box"> <img src="{{ asset('images/favoris.png') }}" style="height: 20px; width:20px; margin-right: 5px;" alt=""><p style="color: black;"> Wishlist </p></a> 
+</div>
     
     
-  <li class="nav-item dropdown" style="position: absolute; margin-left: 55%; margin-top:1%;">
+  <div class="nav-item dropdown" style="margin-top:1%;display: flex">
                     <img src="{{ asset('images/user.png') }}" alt="user" style="height: 20px; width:20px; margin-right: 10px;">
                 <a style="font-size: 16px;"  id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
 
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="padding-left: 10px;">
+                <div class="dropdown-menu dropdown-menu-right"  style="width:fit-content;padding-left: 10px; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-37px, 22px, 0px);">
                     <a class="dropdown-item" style="width: 50px; color:black;" href="{{ route('home') }}">
                         <h5>My Profile</h5>
                         <img src="{{ asset('images/profile.png') }}" alt="profile" style="height: 30px; width:30px; position:absolute; margin-left:100px; margin-top:-25px;">
@@ -42,7 +41,7 @@
                         @csrf
                     </form>
                 </div>
-            </li>
+            </div>
 
             <script>
                 function authBlade(){
@@ -90,4 +89,3 @@
 
 
         @endguest
-    </ul>

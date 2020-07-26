@@ -222,6 +222,6 @@ Route::get('/ville/23', function(){
 });
 Route::get('/ville/24', function(){
     $villes = Ville::all();
-    $products = Product::where('ville', "Zaghouan")->take(12)->get();
-    return View('villes.Zaghouan')->with(compact('villes', 'products'));
+    $products = Product::where('ville', "Zaghouane")->take(12)->get();
+    return View('villes.Zaghouane')->with(compact('villes', 'products'));
 });

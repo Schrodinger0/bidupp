@@ -10,20 +10,18 @@
       <nav class="navigation">
         <div class="container-fluid">
           <div class="navigation__column left">
-            <div class="header__logo"><a class="ps-logo" href="index.html"><img src="images/logo.png" alt="" style=" width:70px; height:70px; margin-bottom:20px;"></a></div>
+            <div class="header__logo"><a class="ps-logo" href="{{ route('welcome') }}"><img src="{{ asset('images/logo.png')}}" alt="" style=" width:70px; height:70px; margin-bottom:20px;"></a></div>
           </div>
-          <div class="navigation__column center">
-             
-            </div>
           <div class="navigation__column right">
             @include('partials.search')
-
-            <div class="ps-cart"><a class="ps-cart__toggle" href="{{ route('cart.index') }}"><span><i>{{Cart::count()}}</i></span><i class="fa fa-trophy" aria-hidden="true"></i></a>
+            <div class="ps-cart"><a class="ps-cart__toggle" href="{{ route('cart.index') }}"><i class="fa fa-trophy" aria-hidden="true"></i></a>
+              <div class="drop2down">
+            <button class="drop2btn"><span class="caret"></span></button>
+            <div class="drop2down-content" >
+            @include('partials.auth')
             </div>
-  
-        </div>
-        <div class="degl" style="position: absolute; margin-left:70%; margin-top:2%; width:400px;">
-          @include('partials.auth')
+            </div>
+            </div>
         </div>
 
       </nav>
@@ -37,7 +35,7 @@
         <a  href="{{ route('products.activite') }}">Activities <img src="{{ asset('images/activity.png')}}" alt="" style="height:21px;width:21px;"></a>
         <a  href="{{ route('products.beaute') }}">Beauty <img src="{{ asset('images/beaute.png')}}" alt="" style="height:21px;width:21px;"></a>
         <a  href="{{ route('products.formation') }}">Courses <img src="{{ asset('images/formation.png')}}" alt="" style="height:21px;width:21px;"></a>
-       <a  href="{{ route('products.gastronomie') }}">Gastronomy <img src="{{ asset('images/food.png')}}" alt="" style="height:21px;width:21px;"></a>
+       <a class="active" href="{{ route('products.gastronomie') }}">Gastronomy <img src="{{ asset('images/food.png')}}" alt="" style="height:21px;width:21px;"></a>
        <a href="{{ route('products.hotel') }}">Hotels <img src="{{ asset('images/hotel.png')}}" alt="" style="height:21px;width:21px;"></a>
        <a  href="{{ route('products.sport') }}">Sport <img src="{{ asset('images/sport.png')}}" alt="" style="height:21px;width:21px;"></a>
         <a href="{{ route('products.shopping') }}">Shopping <img src="{{ asset('images/shopping.png')}}" alt="" style="height:21px;width:21px;"></a>
@@ -76,7 +74,7 @@
       <div class="ps-section--features-product ps-section masonry-root pt-100 pb-100">
         <div class="ps-container">
           <div class="ps-section__header mb-50">
-            <h3 class="ps-section__title" data-mask="Gastronomie">Gastronomie</h3>
+            <h3 class="ps-section__title" data-mask="Gastronomy">Gastronomy</h3>
            
           </div>
           <div class="ps-section__content pb-50">

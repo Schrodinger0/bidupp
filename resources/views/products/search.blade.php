@@ -1,30 +1,27 @@
 @extends('layouts.master')
 
 @section('content')
-
     <header class="header">
       <div class="header__top">
         <div class="container-fluid">
-      
+       
         </div>
       </div>
       <nav class="navigation">
         <div class="container-fluid">
           <div class="navigation__column left">
-            <div class="header__logo"><a class="ps-logo" href="index.html"><img src="{{ asset('images/logo.png')}}" alt="" style=" width:70px; height:70px; margin-bottom:20px;"></a></div>
+            <div class="header__logo"><a class="ps-logo" href="{{ route('welcome') }}"><img src="{{ asset('images/logo.png')}}" alt="" style=" width:70px; height:70px; margin-bottom:20px;"></a></div>
           </div>
-          <div class="navigation__column center">
-            
-            </div>
           <div class="navigation__column right">
             @include('partials.search')
-
-            <div class="ps-cart"><a class="ps-cart__toggle" href="{{ route('cart.index') }}"><span><i>{{Cart::count()}}</i></span><i class="fa fa-trophy" aria-hidden="true"></i></a>
+            <div class="ps-cart"><a class="ps-cart__toggle" href="{{ route('cart.index') }}"><i class="fa fa-trophy" aria-hidden="true"></i></a>
+              <div class="drop2down">
+            <button class="drop2btn"><span class="caret"></span></button>
+            <div class="drop2down-content" >
+            @include('partials.auth')
             </div>
-
-        </div>
-        <div class="degl" style="position: absolute; margin-left:70%; margin-top:2%; width:400px;">
-          @include('partials.auth')
+            </div>
+            </div>
         </div>
       </nav>
 
@@ -59,9 +56,9 @@
     </header>
     <div class="header-services">
       <div class="ps-services owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="7000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Bidup</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Bidup</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Bidup</p>
       </div>
     </div>
 
@@ -81,7 +78,7 @@
             <div class="ps-section--features-product ps-section masonry-root pt-100 pb-100">
               <div class="ps-container">
                 <div class="ps-section__header mb-50">
-                  <h3 class="ps-section__title" data-mask="Recherche">Recherche</h3>
+                  <h3 class="ps-section__title" data-mask="Search">Search Results</h3>
                 
                 </div>
                 <div class="ps-section__content pb-50">
@@ -90,7 +87,7 @@
                       <div class="grid-sizer"></div>
 
                       @if (request()->input('q'))
-                      <h5 style="position: absolute; margin-top:-30px;"> {{ $products->total() }} résultat(s) pour la recherche "{{ request()->q }}"</h5>
+                      <h5 style="position: absolute; margin-top:-30px;"> {{ $products->total() }} result(s) Found "{{ request()->q }}"</h5>
                     
                   
                       @endif

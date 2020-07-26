@@ -75,7 +75,7 @@
                   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
                     <aside class="ps-widget--footer ps-widget--info second" style="margin-top: -50px;">
                       <header>
-                        <h3 class="ps-widget__title">Contactez Nous</h3>
+                        <h3 class="ps-widget__title">Contact Us</h3>
                       </header>
                       <footer>
                           <div class="ps-home-contact">
@@ -109,24 +109,24 @@
                   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
                     <aside class="ps-widget--footer ps-widget--link" >
                       <header>
-                        <h3 class="ps-widget__title">Aide ? </h3>
+                        <h3 class="ps-widget__title">Help ? </h3>
                       </header>
                       <footer>
                         <ul class="ps-list--link">
                           <li>
-                            <a href="#!">Centre d'aide</a>
+                            <a href="#!">Help Center</a>
                           </li>
                           <li>
                             <a href="#!">FAQ</a>
                           </li>
                           <li>
-                            <a href="#!">Mentions Légals</a>
+                            <a href="#!">Legal Notice</a>
                           </li>
                           <li>
-                            <a href="#!">Confidentialité</a>
+                            <a href="#!">Privacy</a>
                           </li>
                           <li>
-                              <a href="#!">Conditions générale et particuliéres de ventes</a>
+                              <a href="#!">General and special terms and conditions of sale</a>
                             </li>
                         </ul>
                       </footer>
@@ -142,7 +142,7 @@
                   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
                     <aside class="ps-widget--footer ps-widget--link">
                       <header>
-                        <h3 class="ps-widget__title">LIENS UTILES</h3>
+                        <h3 class="ps-widget__title">USEFUL LINKS</h3>
                       </header>
                       <footer>
                         <ul class="ps-list--line">
@@ -150,19 +150,19 @@
                             <a href="#!">Application Mobile </a>
                           </li>
                           <li>
-                            <a href="#!">Blog BidUp</a>
+                            <a href="#!">BidUp Blog</a>
                           </li>
                           <li>
-                            <a href="#!">Le meilleur job de Tunisie</a>
+                            <a href="#!">The best job in Tunisia</a>
                           </li>
                           <li>
-                              <a href="#!">Avis sur BidUp </a>
+                              <a href="#!">Opinions on BidUp </a>
                             </li>
                             <li>
                               <a href="#!">Press </a>
                             </li>
                             <li>
-                              <a href="#!">Programme d'affiliation </a>
+                              <a href="#!">Affiliate Program </a>
                             </li>
                         </ul>
                       </footer>
@@ -183,25 +183,25 @@
                       <footer>
                         <ul class="ps-list--line">
                           <li>
-                            <a href="#!">Le concept</a>
+                            <a href="#!">The concept</a>
                           </li>
                           <li>
-                            <a href="#!">Devenir partenaire</a>
+                            <a href="#!">Become Partner</a>
                           </li>
                           <li>
-                            <a href="#!">Notre équipe</a>
+                            <a href="#!">Our Team</a>
                           </li>
                           <li>
-                              <a href="#!">Cartes cadeaux</a>
+                              <a href="#!">Gift Cards</a>
                             </li>
                             <li>
-                              <a href="#!">Engagement qualité </a>
+                              <a href="#!">Commitment to quality </a>
                             </li>
                             <li>
-                              <a href="#!">Recrutement</a>
+                              <a href="#!">Recruitment</a>
                             </li>
                             <li>
-                              <a href="#!"> Programme de fidélité </a>
+                              <a href="#!"> Loyalty program </a>
                             </li>
                         </ul>
                       </footer>
@@ -215,17 +215,17 @@
           <div class="ps-container"> 
         <div class="row">
           <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
-            <h3 style="color: white;"><i class="fa fa-envelope"></i>Inscrivez vous à notre Newsletter</h3>
+            <h3 style="color: white;"><i class="fa fa-envelope"></i> Subscribe to Our Newsletter</h3>
           </div>
           <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12 ">
             <form class="ps-subscribe__form" action="{{ route('newsletter.save') }}" method="POST">
               @csrf
               <input name="email" class="form-control" type="email" placeholder="JhonDoe@bidup.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-              <button type="submit">s'inscrire</button>
+              <button type="submit">Subscribe</button>
             </form>
           </div>
           <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">
-            <p>Recevez notre newsletter et soyez informé immédiatement des dernières nouveautés.</p>
+            <p>Receive our newsletter and be informed immediately of the latest news.</p>
           </div>
     </div>
           </div>

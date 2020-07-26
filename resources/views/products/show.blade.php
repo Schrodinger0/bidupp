@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-
     <header class="header">
       <div class="header__top">
         <div class="container-fluid">
@@ -11,24 +10,18 @@
       <nav class="navigation">
         <div class="container-fluid">
           <div class="navigation__column left">
-            <div class="header__logo"><a class="ps-logo" href="index.html"><img src="{{ asset('images/logo.png')}}" alt="" style=" width:70px; height:70px; margin-bottom:20px;"></a></div>
+            <div class="header__logo"><a class="ps-logo" href="{{ route('welcome') }}"><img src="{{ asset('images/logo.png')}}" alt="" style=" width:70px; height:70px; margin-bottom:20px;"></a></div>
           </div>
-          <div class="navigation__column center">
-             
-            </div>
           <div class="navigation__column right">
-           
             @include('partials.search')
-
-        
-          <div class="ps-cart"><a class="ps-cart__toggle" href="{{ route('cart.index') }}"><span><i>{{Cart::count()}}</i></span><i class="fa fa-trophy" aria-hidden="true"></i></a>
-             
-  
-        </div>
-
-       
-        <div class="degl" style="position: absolute; margin-left:50%; margin-top:-4%; width:400px;">
-          @include('partials.auth')
+            <div class="ps-cart"><a class="ps-cart__toggle" href="{{ route('cart.index') }}"><i class="fa fa-trophy" aria-hidden="true"></i></a>
+              <div class="drop2down">
+            <button class="drop2btn"><span class="caret"></span></button>
+            <div class="drop2down-content" >
+            @include('partials.auth')
+            </div>
+            </div>
+            </div>
         </div>
 
 
@@ -179,7 +172,7 @@
                 <div class="ps-product__shopping">
 
 
-                  <form action="{{ route('cart.store') }}" method="POST">
+                  <form action="{{ route('cart.store') }}" method="POST" >
                     @csrf
                     
                     <div id='bidForm' class="form-group">
@@ -254,7 +247,6 @@
                 </form>
                 </div>
 
-                  <div class="ps-product__actions"><a class="mr-10" href="whishlist.html"><i class="ps-icon-heart"></i></a><a href="compare.html"><i class="ps-icon-share"></i></a></div>
                 </div>
 
 
@@ -407,7 +399,7 @@
             var winnerMan = document.getElementById('winnerMan');
             var timerDiv = document.getElementById('timer');
             timerDiv.innerHTML = time(milliseconds);
-            bidBtn.innerHTML = "J'encheris";
+            bidBtn.innerHTML = "Bid";
             bidBtn.className = 'ps-btn mb-10';
             bidBtn.onclick = function (){
               appendDiv("username");

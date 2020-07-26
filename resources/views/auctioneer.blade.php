@@ -10,23 +10,19 @@
       <nav class="navigation">
         <div class="container-fluid">
           <div class="navigation__column left">
-            <div class="header__logo"><a class="ps-logo" href="index.html"><img src="{{ asset('images/logo.png')}}" alt="" style=" width:70px; height:70px; margin-bottom:20px;"></a></div>
+            <div class="header__logo"><a class="ps-logo" href="{{ route('welcome') }}"><img src="{{ asset('images/logo.png')}}" alt="" style=" width:70px; height:70px; margin-bottom:20px;"></a></div>
           </div>
-          <div class="navigation__column center">
-        
-            </div>
           <div class="navigation__column right">
             @include('partials.search')
-
-            <div class="ps-cart"><a class="ps-cart__toggle" href="{{ route('cart.index') }}"><span><i>{{Cart::count()}}</i></span><i class="fa fa-trophy" aria-hidden="true"></i></a>
+            <div class="ps-cart"><a class="ps-cart__toggle" href="{{ route('cart.index') }}"><i class="fa fa-trophy" aria-hidden="true"></i></a>
+              <div class="drop2down">
+            <button class="drop2btn"><span class="caret"></span></button>
+            <div class="drop2down-content" >
+            @include('partials.auth')
             </div>
-  
+            </div>
+            </div>
         </div>
-
-    
-       <div class="degl" style="position: absolute; margin-left:70%; margin-top:2%; width:400px;">
-          @include('partials.auth')
-        </div> 
 
       </nav>
 
