@@ -203,7 +203,7 @@
                                 </a>
                         </div>
                         <div class="col company-details">
-                            <h2 class="name">
+                            <h2 class="name"> 
                                 <a target="_blank" href="">
                                 BidUp
                                 </a>
@@ -217,23 +217,69 @@
                 <main>
                     <div class="row contacts">
                         <div class="col invoice-to">
-                            <div class="text-gray-light">Facture à:</div>
-                            <h2 class="to">John Doe</h2>
-                            <div class="address">796 Silver Harbour, TX 79273, US</div>
-                            <div class="email"><a href="mailto:john@example.com">john@example.com</a></div>
+                            <div class="text-gray-light">Bill  To:</div>
+                        <h2 class="to">{{Auth::user()->name}}</h2>
+                            <div class="email"><a href="mailto:john@example.com">{{Auth::user()->email}}</a></div>
                         </div>
                         <div class="col invoice-details">
-                            <h1 class="invoice-id">facture XXXXX</h1>
-                            <div class="date">Date factue: 01/10/2020</div>
-                            <div class="date">Date d'échéance: 30/10/2020</div>
+
+                            @php
+                            $BillNumber = "1";
+                            @endphp
+
+                            @foreach ($orders as $order)
+
+                            @if($loop->last)
+
+                            @isset($order->id)
+                            @php
+                            $BillNumber = ($order->id) +1;
+                            @endphp
+        
+                            @endisset
+                                @endif
+                            @endforeach 
+
+                            @if ($BillNumber < 10)
+                            @php
+                                $zeros = 0000
+                           @endphp 
+                            @endif                                
+                             @if($BillNumber >= 10)
+                             @php
+                                $zeros = 000
+                            @endphp   
+                          @endif
+ 
+                             @if($BillNumber >= 100)
+                             @php
+                                $zeros = 00
+                            @endphp 
+                             @endif
+ 
+                            @if($BillNumber >= 1000)
+                            @php
+                               $zeros = 0
+                           @endphp 
+                            @endif
+ 
+                            @if($BillNumber >= 10000)
+                            @php
+                               $zeros = ''
+                           @endphp 
+                            @endif
+
+                            <h1 class="invoice-id">Bill {{$zeros}}{{$BillNumber}} </h1>
+
+                            <div class="date">Bill Date: {{date("Y/m/d")}}</div>
                         </div>
                     </div>
                     <table border="0" cellspacing="0" cellpadding="0" >
                         <thead>
                             <tr>
-                                <th class="text-left">Tous Produits</th>
-                                <th class="text-right">Prix Oreginal</th>
-                                <th class="text-right">Prix Enchers</th>
+                                <th class="text-left">Product</th>
+                                <th class="text-right">Original Price</th>
+                                <th class="text-right">Auction Price</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -246,27 +292,33 @@
                                 <td class="text-left"><h3>
                                     {{ $product->model->title }} 
                                 </td>
-                                <td class="unit">LastBid .Dt</td>
-                                <td class="total">  {{ $product->model->price }} .DT</td>
+                                <td class="unit">{{ $product->model->price }} .Dt</td>
+                                <td class="total">  {{ session('Bidderprice') }} .DT</td>
                             </tr>
                   
                             @endforeach
+                            @php
+                            $theBidderPrice = session('Bidderprice') ;
+                            $taxPrice = ($theBidderPrice * 19) / 100 ;
+                            $totalPriceBid = $taxPrice + $theBidderPrice ;
+
+                         @endphp
                         </tbody>
                         <tfoot>
                             <tr>
                                 <td colspan="2"></td>
                                 <td colspan="2">HT</td>
-                                <td>{{ Cart::subtotal() }} .Dt</td>
+                                <td>{{ $theBidderPrice }} .Dt</td>
                             </tr>
                             <tr>
                                 <td colspan="2"></td>
                                 <td colspan="2">TAX 19%</td>
-                                <td>{{Cart::tax()}}  .Dt</td>
+                                <td>{{$taxPrice}}  .Dt</td>
                             </tr>
                             <tr>
                                 <td colspan="2"></td>
                                 <td colspan="2">TOTAL</td>
-                                <td>{{ Cart::total() }} .Dt</td>
+                                <td>{{ $totalPriceBid }} .Dt</td>
                             </tr>
                         </tfoot>
                     </table>
@@ -320,7 +372,7 @@ $('#printInvoice').click(function(){
                 return true;
             }
         });
-
+console.log("{{ $BillNumber}}")
 </script>
 
 

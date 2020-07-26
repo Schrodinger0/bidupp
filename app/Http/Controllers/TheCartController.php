@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use App\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Session;
+use Illuminate\Support\Facades\Auth;
 
 
 class TheCartController extends Controller
@@ -36,17 +38,26 @@ class TheCartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    
     public function store(Request $request)
     {
-      // print_r($request->input());
+       // $Bidderprice = [];
+        //$user = Auth::user()->id;
+       // $product = Product::find($request->id);
+       // $request->session()->forget('Bidderprice');
+        // print_r($request->input());
         /*change it to the condition of higher price + timer end */ 
-      Cart::add($request->id, $request->title, 1, $request->price)
-      ->associate('App\Product');
+     Cart::add($request->id, $request->title, 1, $request->price)
+     ->associate('App\Product');
 
-      $lastBidder = $request->lastBidderprice;
+     $Bidderprice = $request->Bidderprice;
 
-      return redirect()->route('cart.index',$request->slug)->with('success', 'Congratulations! You Won this Auction')
-                                                            ->with('lastBidder', $lastBidder);
+     
+      $request->session()->put('Bidderprice', $Bidderprice);
+     // dd( $Bidderprice);
+     return redirect()->route('cart.index',$request->slug)->with('success', 'Congratulations! You Won this Auction');
+                                                            //->with(['Bidderprice' => $Bidderprice]);
                                                             
 
 

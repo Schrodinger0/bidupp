@@ -37,7 +37,7 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->json()->all();
+        //$data = $request->json()->all();
 
         $order = new Order();
 
@@ -48,7 +48,7 @@ class CheckoutController extends Controller
      
         
         
-    //    Cart::destroy();
+    //    Cart::destroy(); 
 
     }
 
@@ -99,10 +99,12 @@ class CheckoutController extends Controller
 
     public function invoice()
     {
+        $orders = Order::all();
+
         if (Cart::count() <= 0 ){
              return redirect()->route('cart.index');
         }
-        return view('cart.invoice');
+        return view('cart.invoice')->with(compact('orders'));
     }
 
 }

@@ -81,9 +81,9 @@
                           <div class="ps-home-contact">
   
 
-                              <form action="{{ route('Contact.send') }}" method="get">
+                              <form action="{{ route('Contact.send') }}" method="post">
                                 <div class="form-group">
-                                  <P>Name<span>*</span></P>  
+                                  <P>Name<span>*</span></P>   
                                 <input class="form-control" name="name" type="text">
                                 </div>
                                 <div class="form-group">

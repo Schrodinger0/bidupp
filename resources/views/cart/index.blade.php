@@ -105,10 +105,8 @@
                     <td><a class="ps-product__preview" href="#"><img class="mr-15" src="{{ asset('storage/'.$product->model->image)}}" style="height: 150px; width: 150px;" alt=""> {{ $product->model->title }} </a></td>
                     <td>{{ $product->model->price }} .Dt</td>
                   
-                    @foreach ($$lastBidder as $item)
-                    <td> {{$item}} .Dt</td>
+                    <td> {{ session('Bidderprice') }}  .Dt</td>
 
-                    @endforeach
                     <td>
                       <form action="{{ route('cart.destroy', $product->rowId) }}" method="POST">
                         @csrf
@@ -131,10 +129,16 @@
               </div>
             </div>
             <div class="ps-cart__total">
-              <h3>HT:  <span> 92.00 .Dt</span></h3><hr>
-            <h3>TAX: 19%  <span>17.48  .Dt</span></h3><hr>
-              
-              <h3>prix total:  <span> 109.48 .Dt</span></h3><a class="ps-btn" href="{{ route('cart.invoice')}}">Proceed to checkout<i class="ps-icon-next"></i></a>
+              <h3>HT:  <span> {{ session('Bidderprice') }} .Dt</span></h3><hr>
+              @php
+                 $theBidderPrice = session('Bidderprice') ;
+                 $taxPrice = ($theBidderPrice * 19) / 100 ;
+              @endphp
+            <h3>TAX: 19%  <span>{{ $taxPrice}}  .Dt</span></h3><hr>
+              @php
+                  $totalPriceBid = $taxPrice + $theBidderPrice ;
+              @endphp
+              <h3>Total Price:  <span> {{ $totalPriceBid}} .Dt</span></h3><a class="ps-btn" href="{{ route('cart.invoice')}}">Proceed to checkout<i class="ps-icon-next"></i></a>
 
             </div>
           </div>
@@ -148,7 +152,7 @@
 
         <div class="alert alert-dismissible alert-success">
           <img src="{{asset('images/trophy.png')}}" style="width: 100px; height: 100px" >
-          <strong>malheureusemment! :( </strong> Vous avez pas des enchers <a href="{{ route('products.index')}}" class="alert-link">chercher des offres</a>.
+          <strong>unfortunately! :( </strong> You haven't won any Auctions yet!! Hard Luck .. <a href="{{ route('products.index')}}" class="alert-link">Start Winning</a>.
         </div>
 
         @endif
