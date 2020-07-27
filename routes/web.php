@@ -63,8 +63,9 @@ Route::delete('/mesenchers/{rowId}', 'TheCartController@destroy')->name('cart.de
 
 
 
-Route::get('/videenchers', function () {
+Route::get('/empty', function () {
     Cart::destroy();
+    return redirect()->route('cart.index')->with('degla', 'Your Order is being processed');
 });
 
 

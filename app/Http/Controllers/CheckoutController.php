@@ -35,20 +35,21 @@ class CheckoutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //$data = $request->json()->all();
-
-        $order = new Order();
-
-
-        $order->amount= 55;
-        $order->user_id = 15;
-
-     
-        
-        
-    //    Cart::destroy(); 
+             // print_r($request->input());
+             $order = new Order;
+             $order->user_name = $req->user_name;
+             $order->user_email = $req->user_email;
+             $order->oreginal_price = $req->oreginal_price;
+             $order->tax = $req->tax;
+             $order->auction_price = $req->auction_price;
+             $order->payment_created_at = $req->payment_created_at;
+             $order->products = $req->products;
+             $order->user_id = $req->user_id;
+             $order->amount = $req->amount;
+             $order->save();
+             return redirect('/empty');      
 
     }
 
@@ -106,5 +107,8 @@ class CheckoutController extends Controller
         }
         return view('cart.invoice')->with(compact('orders'));
     }
+
+
+    
 
 }

@@ -334,9 +334,16 @@
                     <form action="{{ route('Checkout.store') }}" method="POST">
                         @csrf
 
-                        <input type="hidden" name="amount" value="{{ Cart::total() }}">
-                        <input type="hidden" name="content" value="{{ Cart::content() }}">
-
+                        <input type="hidden" name="user_name" value="{{Auth::user()->name}}">
+                        <input type="hidden" name="user_email" value="{{Auth::user()->email}}">
+                        <input type="hidden" name="oreginal_price" value="{{ $product->model->price }}">
+                        <input type="hidden" name="tax" value="{{$taxPrice}}">
+                        <input type="hidden" name="auction_price" value="{{ $theBidderPrice }}">
+                        <input type="hidden" name="amount" value="{{ $totalPriceBid }}">
+                        <input type="hidden" name="payment_created_at" value="{{date("Y/m/d")}}">
+                        <input type="hidden" name="products" value="{{ $product->model->title }}">
+                        <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                                
 
                       <button type="submit" class="btn btn-Success" style="margin-left: 85%;
                       background-color: #4CAF50; /* Green */

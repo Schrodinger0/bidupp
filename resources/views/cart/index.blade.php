@@ -151,6 +151,12 @@
       </div>
     </div>
   
+    
+    @if (session('degla'))
+    <div class="alert alert-danger">
+        {{ session('degla') }}
+    </div>
+@endif
   
   </main>
 
