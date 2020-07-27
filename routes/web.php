@@ -61,7 +61,7 @@ Route::delete('/mesenchers/{rowId}', 'TheCartController@destroy')->name('cart.de
 
 
 
-
+  
 
 Route::get('/empty', function () {
     Cart::destroy();
